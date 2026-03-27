@@ -505,13 +505,42 @@ The distribution is **positively skewed**: most paths cluster slightly below $60
 
 ### The Position
 
-22 contracts of the UNG $12 straddle (put + call), entered March 26 at $0.39/share ($850.80 total). Expiry: April 1 (Tuesday). By Friday morning the put was up +37% and the call was down -35%. The straddle was profitable — but the **vanna thesis was fighting theta**, and theta was winning.
+22 contracts of the UNG $12 straddle (put + call), entered March 26 at $0.39/share per leg (~$1,716 total for both legs). Expiry: April 1 (Tuesday). By Friday morning the put was up +37% and the call was down -35%. The straddle was profitable — but the **vanna thesis was fighting theta**, and theta was winning.
+
+### The Morning Move
+
+UNG opened Friday at **$12.16** — up 2.7% from yesterday's $11.84 close. The put that was profitable yesterday is now melting as UNG crossed above the $12 strike. Live option chain as of 10:15 AM:
+
+| Leg | Bid | Ask | IV | Status |
+|-----|:---:|:---:|:--:|--------|
+| **$12 Put** | $0.25 | $0.26 | 53% | Losing value fast — OTM now |
+| **$12 Call** | $0.42 | $0.45 | 57% | ITM — gaining |
+| **Straddle** | $0.67 | $0.71 | — | Still below $0.78 cost |
 
 ### What I Did
 
-**Sold the put. Held the call.**
+**Sold the put at $0.25. Held the call.**
 
-The put sale locked in ~$671. The remaining call has a cost basis of ~$187 — that's my max downside. If the call expires worthless, I'm still **net +$242 on the entire trade**. If UNG gaps up Monday on an escalation headline, the call prints and I keep the put profit.
+| | Amount |
+|---|---:|
+| Total straddle cost (both legs) | $1,716 |
+| Put sale (22 × 100 × $0.25) | $550 |
+| Remaining cost to recover | **$1,166** |
+| Call needs to be worth to break even | **$0.53/share** |
+| Call currently worth (bid $0.42) | $924 |
+| Current total value (put proceeds + call) | $1,474 |
+| **Unrealized P&L** | **-$242** |
+
+I'm still down $242 on the full trade. The put sale doesn't "lock in profit" — it **recovers $550 of my $1,716 cost** and **cuts my max loss from $1,716 to $242** (if the call expires worthless). The call needs UNG at **~$12.53** (+3% from here) by Tuesday to break even on the whole trade.
+
+### Why I Sold the Put Now
+
+The put is decaying in two directions simultaneously:
+
+1. **UNG moved above the strike.** At $12.16, the $12 put is OTM with only $0.25 of time value left. If UNG keeps going up, this put goes to zero and I get nothing for it.
+2. **Weekend theta.** 3 calendar days of decay for 0 trading days. The put is pure time value — it has no intrinsic protection to fall back on. By Tuesday it's dust.
+
+Selling at $0.25 is better than watching it decay to $0.05.
 
 ### Why: The Vanna-Theta Collision
 
@@ -532,33 +561,30 @@ I'm not neutral on direction anymore. The evidence points upward:
 - Shipping analysts assess **routine Hormuz transit won't resume in 2026**
 - The crisis is getting hotter, not cooler
 
-If I'm directionally convicted that the weekend risk skews upward, holding a put that bleeds theta against my thesis is paying insurance I don't believe I need.
+If I'm directionally convicted that the weekend risk skews upward, holding a put that bleeds theta against my thesis is paying insurance I don't believe I need — especially when the put is already OTM and melting.
 
 ### What I'm Choosing to Miss
 
 This is the honest part. By selling the put, I'm giving up protection against scenarios that are real:
 
-| Scenario | UNG Direction | Magnitude | Probability | Straddle P&L | Call-Only P&L |
-|:---------|:------------:|:---------:|:-----------:|:------------:|:-------------:|
-| Partial escalation, LNG disruption continues | Up | +8–15% | **Highest** | +$1,046 | **+$1,645** |
-| Full Hormuz closure, no quick resolution | Up then down | +15% gap, then reversal | Moderate | +$2,540 | **+$3,162** |
-| US successfully reopens strait / ceasefire | **Down hard** | -10–20% | Moderate | **+$904** | -$186 |
-| Full regional war, demand destruction | **Down** | -15–25% over days | Lower but real | **+$1,500+** | -$187 |
-| Stalemate, no new developments | Flat | ±3% | Present | -$112 | **+$21** |
+| Scenario | UNG Direction | Magnitude | Probability | What I Lose |
+|:---------|:------------:|:---------:|:-----------:|:------------|
+| Partial escalation, LNG disruption continues | Up | +8–15% | **Highest** | Nothing — call wins here |
+| Full Hormuz closure, no quick resolution | Up then down | +15% gap, reversal | Moderate | Nothing on the gap — but vulnerable on reversal |
+| US successfully reopens strait / ceasefire | **Down hard** | -10–20% | Moderate | **The put would have printed. I miss this entirely.** |
+| Full regional war, demand destruction | **Down** | -15–25% over days | Lower but real | **Same — demand destruction kills the call, put would have saved me.** |
+| Stalemate, no new developments | Flat | ±3% | Present | Both legs bleed — but I save $227 in theta |
 
 The third and fourth rows are the ones that hurt. If Hormuz reopens over the weekend or demand destruction pricing kicks in, the put I sold would have been the winning leg. I'm accepting that risk in exchange for:
 
-1. **Halving my weekend theta bleed** ($227 saved)
-2. **Locking in $671** regardless of what happens Monday
-3. **Converting to a pure directional bet** aligned with my actual conviction
-
-The probability-weighted EV favors legging out by **~$219** given my scenario weights. But EV isn't certainty — it's a weighted average across futures I can't see.
+1. **Cutting max loss from $1,716 to $242**
+2. **Halving my weekend theta bleed** ($227 saved)
+3. **Recovering $550 now** before the put decays further
+4. **Converting to a pure directional bet** aligned with my actual conviction — UNG needs +3% by Tuesday, one escalation headline away
 
 <p align="center">
   <img src="outputs/taleb-strangle-analysis/charts/leg_out_analysis.png" alt="Leg Out Analysis" width="100%">
 </p>
-
-The gold line (leg out) dominates the blue line (straddle) everywhere above $11.80. Below that, the straddle wins — and I'm choosing to miss that.
 
 ### The Lesson for Next Time
 
