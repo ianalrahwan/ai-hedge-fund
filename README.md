@@ -1,5 +1,7 @@
 # AI Hedge Fund
 
+> **New: [War Planning — Iran-Hormuz Volatility Campaign](war-planning/WAR_PLANNING.md)** | Geopolitical analysis, five quant equations, Kelly sizing, theta/vega dynamics, and a 26-week deployment plan with 10 original visualizations.
+
 This is a proof of concept for an AI-powered hedge fund.  The goal of this project is to explore the use of AI to make trading decisions.  This project is for **educational** purposes only and is not intended for real trading or investment.
 
 This system employs several agents working together:
