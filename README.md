@@ -48,7 +48,7 @@ $60K Bankroll | 2x Aggressive Kelly | 26 Weeks
 | VIII | [Capital Deployment](#viii-capital-deployment--2-aggressive) | Phase-adjusted week-by-week allocation |
 | IX | [Monte Carlo](#ix-monte-carlo-simulation) | 1,000 simulated 26-week campaigns |
 | X | [Decision Tree](#x-the-decision-tree) | The execution protocol I'm following |
-| XI | [Trade Log: The Leg-Out](#xi-trade-log-the-leg-out) | Why I sold the put and held the call — vanna, theta, and directional conviction |
+| XI | [Trade Log: Vanna vs Theta](#xi-trade-log-the-leg-out--vanna-vs-theta) | Why I sold the put and held the call — vanna fighting theta, and theta was winning |
 | XII | [Alerting for Fidelity](#xii-alerting-schedule-for-fidelity) | How someone with a day job monitors weekly options |
 | XIII | [Taleb Reports](#xiii-taleb-reports) | Full analysis reports — strangle scoring, second-order plays, LNG, vega calendars |
 | XIV | [Sources](#xiv-sources) | Geopolitical, market, and quantitative theory citations |
@@ -499,15 +499,15 @@ The distribution is **positively skewed**: most paths cluster slightly below $60
 
 <br>
 
-## XI. Trade Log: The Leg-Out
+## XI. Trade Log: The Leg-Out — Vanna vs Theta
 
 *March 27, 2026 — 10:15 AM ET*
 
 ### The Position
 
-22 contracts of the UNG $12 straddle (put + call), entered March 26 at $0.39/share per leg (~$1,716 total for both legs). Expiry: April 1 (Tuesday). By Friday morning the put was up +37% and the call was down -35%. The straddle was profitable — but the **vanna thesis was fighting theta**, and theta was winning.
+22 contracts of the UNG $12 straddle (put + call), entered March 26 at $0.39/share per leg (~$1,716 total for both legs). Expiry: April 1 (Tuesday).
 
-### The Morning Move
+### The Friday Morning Move
 
 UNG opened Friday at **$12.16** — up 2.7% from yesterday's $11.84 close. The put that was profitable yesterday is now melting as UNG crossed above the $12 strike. Live option chain as of 10:15 AM:
 
@@ -600,10 +600,8 @@ The vanna play was right. The structure was wrong. For uncertain-timing catalyst
 
 The rule to carry forward: **when IVR is below 40 and your catalyst has uncertain timing, always buy enough DTE to cover at least two potential event windows.** The premium cost at low IVR is worth it. I compressed three potential payoff windows (this weekend, next week's EIA, April 6 deadline) into one by going 4 DTE.
 
-> *"The option buyer doesn't need to be right about direction. They need to be right that the world is more uncertain than the market thinks."*
-> — paraphrasing Taleb
-
-I was right about the uncertainty. I was wrong about the clock.
+> * OVERALL, if the entire time I though ung would sag into Friday before a massive gamma up over a war escalation - I only paid for the premium and theta decay of the put option expecting a flush. This is called legging out. I should have recognizing that my actual thesis for the weekend WAS NOT a pure vanna play, but a dynamic ratio with a path dependency assuming first a volatile downswing I was getting cheap on the vega compression.
+> *
 
 ---
 
