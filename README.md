@@ -499,7 +499,7 @@ The distribution is **positively skewed**: most paths cluster slightly below $60
 
 <br>
 
-## XI. Trade Log: The Leg-Out — Vanna vs Theta
+## XI. Week 1 Trade Log: Vanna Headwinds vs Theta Tailwinds vs Gamma Gap on a short-dated UNG
 
 *March 27, 2026 — 10:15 AM ET*
 
