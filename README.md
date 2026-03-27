@@ -4,11 +4,11 @@
 
 **A Long-Volatility Campaign Against the Hormuz Crisis**
 
-$30K Bankroll | 2x Aggressive Kelly | 26 Weeks | March 2026
+$30K Bankroll | 2x Aggressive Kelly | 26 Weeks
 
 [![Built with AI Hedge Fund](https://img.shields.io/badge/built%20with-AI%20Hedge%20Fund-blue)](README_ORIGINAL.md)
-[![Nassim Taleb Agent](https://img.shields.io/badge/agent-Nassim%20Taleb-green)](#the-nassim-taleb-agent)
-[![Signal: Strong Buy Vol](https://img.shields.io/badge/signal-strong__buy__vol%2088%25-brightgreen)](#the-nassim-taleb-agent)
+[![Nassim Taleb Agent](https://img.shields.io/badge/agent-Nassim%20Taleb-green)](#ii-the-nassim-taleb-agent)
+[![Signal: Strong Buy Vol](https://img.shields.io/badge/signal-strong__buy__vol%2088%25-brightgreen)](#ii-the-nassim-taleb-agent)
 
 ---
 
@@ -18,31 +18,85 @@ $30K Bankroll | 2x Aggressive Kelly | 26 Weeks | March 2026
 *"War is merely the continuation of policy by other means."*
 **Carl von Clausewitz**, On War (1832)
 
-*"The market can stay irrational longer than you can stay solvent — unless you sized with Kelly."*
-
 ---
 
 </div>
 
+> **This is a blogpost, not a trading manual.** It documents what I'm trying, why I'm trying it, and what the AI agents I built think about it. The positions are real. The analysis is dated. The outcome is unknown. None of this is financial advice.
+
 > **Looking for the original AI Hedge Fund README?** See [README_ORIGINAL.md](README_ORIGINAL.md)
+
+<br>
+
+*Entry date: March 26, 2026*
 
 ## Table of Contents
 
-| # | Section | What's Inside |
-|:-:|---------|---------------|
-| I | [Situation Assessment](#i-situation-assessment) | The crisis timeline, current state, and the April 6 inflection point |
-| II | [The Nassim Taleb Agent](#ii-the-nassim-taleb-agent) | AI agent output — quantitative case for long volatility on UNG |
+| # | Section | |
+|:-:|---------|---|
+| 0 | [The Volatility Premium Problem](#0-the-volatility-premium-problem) | Why buying options is usually a losing game, and why a war changes that |
+| I | [Situation Assessment](#i-situation-assessment) | The crisis timeline and the April 6 inflection point |
+| II | [The Nassim Taleb Agent](#ii-the-nassim-taleb-agent) | AI agent output — the quantitative case for long vol on UNG |
 | III | [Clausewitz Escalation Ladder](#iii-the-clausewitz-escalation-ladder) | Why Iran always feints before the real move |
-| IV | [The Five Quant Equations](#iv-the-five-quant-equations) | Kelly, EV Gap, KL-Divergence, Bayesian Updating, LMSR — applied to UNG |
-| V | [Theta Is Your Enemy](#v-theta-is-your-enemy) | Daily bleed, why weeklies expire worthless, and how calendars hedge it |
-| VI | [IV Crush](#vi-iv-crush--the-silent-killer) | What happens to every long option if the crisis resolves overnight |
-| VII | [The Trinity](#vii-the-trinity-straddle-vs-strangle-vs-calendar) | Three ways to play volatility — when each wins and loses |
-| VIII | [Black Swan Campaign](#viii-the-black-swan-campaign) | Lose small for 24 weeks, win big for 2 — the Taleb thesis in practice |
-| IX | [Capital Deployment](#ix-capital-deployment--2-aggressive) | Phase-adjusted week-by-week allocation with stop rules |
-| X | [Monte Carlo](#x-monte-carlo-simulation) | 1,000 simulated 26-week campaigns |
-| XI | [Decision Tree](#xi-the-decision-tree) | The full execution protocol |
-| XII | [Alerting for Fidelity](#xii-alerting-schedule-for-fidelity) | How a normal person monitors weekly options positions with a day job |
-| XIII | [Sources](#xiii-sources) | Geopolitical, market, and quantitative theory citations |
+| IV | [The Four Quant Equations](#iv-the-four-quant-equations) | Kelly, EV Gap, KL-Divergence, Bayesian Updating |
+| V | [IV Crush](#v-iv-crush--the-silent-killer) | What kills every long option if the crisis resolves overnight |
+| VI | [The Trinity](#vi-the-trinity-straddle-vs-strangle-vs-calendar) | Three ways to play volatility — when each wins and loses |
+| VII | [Black Swan Campaign](#vii-the-black-swan-campaign) | Lose small for 24 weeks, win big for 2 |
+| VIII | [Capital Deployment](#viii-capital-deployment--2-aggressive) | Phase-adjusted week-by-week allocation |
+| IX | [Monte Carlo](#ix-monte-carlo-simulation) | 1,000 simulated 26-week campaigns |
+| X | [Decision Tree](#x-the-decision-tree) | The execution protocol I'm following |
+| XI | [Alerting for Fidelity](#xi-alerting-schedule-for-fidelity) | How someone with a day job monitors weekly options |
+| XII | [Sources](#xii-sources) | Geopolitical, market, and quantitative theory citations |
+
+---
+
+<br>
+
+## 0. The Volatility Premium Problem
+
+### Why Buying Options Is Usually a Losing Game
+
+There is a well-documented phenomenon in options markets called the **volatility premium**. Implied volatility — the price baked into options — is almost always *higher* than realized volatility. The person selling the option demands a premium for taking on the risk. The person buying the option pays that premium.
+
+This means that **on average, option buyers lose money.** The seller collects premium week after week, and the buyer's strangles and straddles expire worthless more often than not. Systematically selling volatility is one of the most consistent strategies in finance. It works until it doesn't.
+
+This is a fact. I'm not disputing it. The data is overwhelming: implied vol exceeds realized vol roughly 85% of the time across most assets.
+
+### So Why Am I Buying Options?
+
+Because the volatility premium is a *statistical regularity*, not a law of physics. It holds in normal markets. It breaks during **phenomena** — situations where the base assumptions of the model no longer apply.
+
+A quant trader from QuantInsti put it well:
+
+> *"Look for situations where assumptions don't apply. Best when those assumptions are so entrenched that people forget they are there."*
+
+The assumptions that underpin the volatility premium:
+- Returns are approximately normally distributed
+- The future resembles the recent past
+- There are no structural breaks in the regime
+- The market has time to gradually reprice risk
+
+Every one of these assumptions is violated right now.
+
+UNG has **excess kurtosis of 7.09** — the tails are 2.4x fatter than a normal distribution. Returns are wildly non-Gaussian. The Strait of Hormuz has been effectively closed for a month — the future does not resemble the recent past. QatarGas declared force majeure with "years" of damage — this is a structural break. And there's a hard deadline (April 6) where the regime could shift overnight in either direction.
+
+**The volatility premium assumes the world is boring. Right now, the world is not boring.**
+
+### The Honest Position
+
+I can't prove the market is mispricing UNG options. Nobody can prove a mispricing until after the fact. The IV rank is at the 15th percentile of its annual range during an active war over the world's most important energy chokepoint — that *looks* like a mispricing, but it might not be. The market might be right that Hormuz will reopen quietly and vol will stay compressed.
+
+What I can say:
+
+1. **The phenomenon is real.** There is an active war with no ceasefire. The strait is closed. Helium and LNG are offline. There's a hard deadline in 11 days.
+2. **The statistical edge is interpretive.** The kurtosis, the IV rank, the Bayesian posterior — they all point toward cheap vol. But I'm the one interpreting them.
+3. **I have to do something anyway.** Capital sitting in cash during a crisis is also a position — it's a bet that nothing happens. I'd rather pay a known premium for optionality than bet on tranquility during a war.
+4. **The sizing accounts for being wrong.** Quarter-to-half Kelly means losing 70% of weekly premium every flat week is survivable for 26 weeks. The campaign doesn't need to be right most weeks. It needs to be alive when the black swan arrives.
+
+This is the Taleb framework: **pay a small, known cost for the right to profit from disorder.** The volatility premium is the cost. The disorder is the edge. Whether the edge is real will only be known in hindsight.
+
+> *"The option buyer doesn't need to be right about direction. They need to be right that the world is more uncertain than the market thinks."*
+> — paraphrasing Taleb, *Dynamic Hedging* (1997)
 
 ---
 
@@ -71,7 +125,7 @@ On **February 28, 2026**, the United States and Israel launched surprise airstri
 | — | QatarGas: "extensive" damage, "years to repair" | [Fortune](https://fortune.com/2026/03/21/iran-war-helium-shortage-qatar-chip-supply-chains-ai-boom/) |
 | — | UNG **down 6.2%** since Mar 13 while crisis intensified | Yahoo Finance |
 
-The key observation: **implied volatility is contracting into the catalyst.** The options market is asleep at the 15th percentile of its annual range while an active war rages over the world's most important energy chokepoint.
+The key observation: **implied volatility is contracting into the catalyst.** The options market is sitting at the 15th percentile of its annual range while an active war rages over the world's most important energy chokepoint. This is the phenomenon.
 
 <br>
 
@@ -79,11 +133,11 @@ The key observation: **implied volatility is contracting into the catalyst.** Th
 
 > In **11 days**, Trump's ultimatum expires.
 
-| Scenario | Probability | UNG Impact | IV Impact | Optimal Strategy |
+| Scenario | Est. Probability | UNG Impact | IV Impact | Strategy Response |
 |:---------|:----------:|:----------:|:---------:|:-------------|
-| Iran opens Hormuz | ~15% | -5% to -10% | **CRUSH** to 35% | Close all positions immediately. |
-| Stalemate / extension | ~55% | ±3-5% | Stays 55-70% | Calendar-heavy — profit from persistent fear. |
-| US military operation | ~30% | **+15% to +30%** | **SPIKE** to 120%+ | Strangle-heavy — the black swan pays. |
+| Iran opens Hormuz | ~15% | -5% to -10% | **CRUSH** to 35% | Close all positions immediately |
+| Stalemate / extension | ~55% | ±3-5% | Stays 55-70% | Calendar-heavy — profit from persistent fear |
+| US military operation | ~30% | **+15% to +30%** | **SPIKE** to 120%+ | Strangle-heavy — the black swan pays |
 
 ---
 
@@ -91,19 +145,19 @@ The key observation: **implied volatility is contracting into the catalyst.** Th
 
 ## II. The Nassim Taleb Agent
 
-This project includes a custom AI agent that channels Nassim Nicholas Taleb's long-volatility philosophy. It evaluates **long strangles** — never directional bets — by scoring five factors:
+I built a custom AI agent that channels Nassim Nicholas Taleb's long-volatility philosophy. It never recommends buying or shorting the underlying. It only evaluates **long strangles** by scoring five factors:
 
 1. **IV Rank Proxy** — Is vol cheap relative to its own history?
 2. **Tail Thickness (Kurtosis)** — Are the tails fatter than Black-Scholes assumes?
 3. **Vega Efficiency** — How much vol exposure does each dollar of premium buy?
 4. **Convexity** — How often does the asset gap beyond the breakeven?
-5. **Antifragility** — Does vol cluster, and is it contracting (cheap entry)?
+5. **Antifragility** — Does vol cluster, and is it contracting into a cheap entry?
 
 ### Agent Output: UNG — March 26, 2026
 
 > **Signal: `strong_buy_vol`** | **Confidence: 88%**
 
-The agent's full analysis, generated by `src/agents/nassim_taleb.py`:
+Full analysis from `src/agents/nassim_taleb.py`:
 
 | Metric | Value | Interpretation |
 |--------|:-----:|----------------|
@@ -113,20 +167,20 @@ The agent's full analysis, generated by `src/agents/nassim_taleb.py`:
 | Gap Frequency | **39%** | Nearly 2 in 5 days move >3% |
 | Convexity Ratio | **8.6x** | Max daily move is 8.6x the average |
 | Vega Efficiency | 1.56 | Acceptable — not great, but vol is cheap |
-| Vol-of-Vol | 0.43 | Volatility itself is volatile (good for strangles) |
+| Vol-of-Vol | 0.43 | Volatility itself is volatile |
 | Vol Autocorrelation | 0.87 | When it spikes, it stays spiked |
 | Vol Trend | **-37%** | Contracting from peak — buying at the trough |
 | Antifragility Score | **7.5/10** | High — this asset benefits from disorder |
 
 <br>
 
+In the agent's own words:
+
 > *"Vol is obscenely cheap — IV rank proxy at 15%. The market is pricing UNG as if natural gas were a sleepy utility stock. Current 20d realized vol sits at 50%, but the 1-year range stretches to 145%. This is textbook mispricing."*
 
 > *"Excess kurtosis of 7.09 — the Gaussian charlatans are blind here. Black-Scholes assumes kurtosis of 3. UNG delivers 10+. The tails are massively fatter than the models admit."*
 
 > *"Convexity ratio of 8.6x and 39% gap frequency — this is strangle paradise. The payoff function is gloriously convex: small bleeds on quiet days, explosive gains when natural gas has a tantrum."*
-
-> *"Vol-of-vol at 0.43 and autocorrelation of 0.87 — volatility clusters hard. Recent vol has contracted 37% from prior levels, which is exactly when you want to enter: buying at the trough before the next clustering event. This is antifragile positioning."*
 
 > *"UNG is a barbell dream. Vol is cheap, tails are fat, gaps are frequent, and volatility itself is volatile. The market is Gaussian-blind. Optionality is nearly free here — convexity harvest mode engaged."*
 
@@ -160,7 +214,7 @@ Every Iran confrontation since 1988 follows the same pattern:
 
 <br>
 
-> The crisis is at **Step 5 on the 7-step escalation ladder.** The historical pattern says the real move hasn't happened yet.
+> The crisis sits at **Step 5 on the 7-step escalation ladder.** The historical pattern says the real move hasn't happened yet.
 
 Each feint spikes IV without a commensurate price move — **calendar spread territory.**
 The real move spikes both IV and price — **strangle territory.**
@@ -171,15 +225,15 @@ A well-structured campaign profits from **both**.
 
 <br>
 
-## IV. The Five Quant Equations
+## IV. The Four Quant Equations
 
 <p align="center">
-  <img src="war-planning/charts/03_five_equations.png" alt="Five Quant Equations" width="100%">
+  <img src="war-planning/charts/03_five_equations.png" alt="Four Quant Equations" width="100%">
 </p>
 
 <br>
 
-### 1. Kelly Criterion — Position Sizing
+### 1. Kelly Criterion — How Much to Bet
 
 $$f^* = \frac{p \cdot b - q}{b}$$
 
@@ -190,7 +244,7 @@ $$f^* = \frac{p \cdot b - q}{b}$$
 | q | 53% | Lose probability |
 | **f*** | **12.9%** | Optimal bet as fraction of bankroll |
 
-Full Kelly is too aggressive — it assumes perfect probability estimates. **Quarter Kelly (3.2%)** survives estimation error. **2x aggressive (6.4%)** is the campaign target, deploying ~$1,920/week on a $30K bankroll.
+Full Kelly assumes perfect probability estimates. It's too aggressive. **Quarter Kelly (3.2%)** survives estimation error. I'm running **2x aggressive (6.4%)** — roughly $1,920/week on a $30K bankroll — because the Bayesian posterior on the Hormuz catalyst is high and the campaign has a defined end.
 
 > *Kelly, J.L. "A New Interpretation of Information Rate." Bell System Technical Journal, 1956.*
 
@@ -200,9 +254,11 @@ Full Kelly is too aggressive — it assumes perfect probability estimates. **Qua
 
 $$EV_{gap} = \frac{V_{model} - V_{market}}{V_{market}}$$
 
-UNG's IV rank sits at the **15th percentile** of its annual range. A model fair value based on the Hormuz crisis remaining unresolved implies vol should be **35% higher** than the current options market is charging. The market is anchoring to the post-February vol crush and underpricing the catalyst that hasn't resolved.
+UNG's IV rank sits at the **15th percentile** of its annual range. A model fair value — based on the Hormuz crisis remaining unresolved — implies vol should be **35% higher** than what the options market is currently charging. The market is anchoring to the post-February vol crush and underpricing the catalyst that hasn't resolved.
 
-> **EV gap: +35%. Strangles are structurally underpriced.**
+This is the interpretive edge from [Section 0](#0-the-volatility-premium-problem). I believe it's a mispricing. I can't prove it.
+
+> **EV gap estimate: +35%. Strangles appear structurally underpriced.**
 
 <br>
 
@@ -210,17 +266,17 @@ UNG's IV rank sits at the **15th percentile** of its annual range. A model fair 
 
 $$D_{KL}(P \| Q) = \sum P(x) \log\frac{P(x)}{Q(x)}$$
 
-UNG's KL-divergence between recent and older return distributions is **0.91** — a severe departure. Excess kurtosis of **7.09** means the tails are ~2.4x fatter than a normal distribution. Every option priced with Black-Scholes is systematically underpriced for this instrument.
+UNG's KL-divergence is **0.91** — a severe departure from normality. Excess kurtosis of **7.09** means the tails are ~2.4x fatter than a normal distribution. Every option priced with Black-Scholes is systematically underpriced for this instrument. This is the most defensible part of the thesis: the fat tails are a statistical fact, not an interpretation.
 
 > *The core of the Taleb edge: the market prices options as if returns are Gaussian. For UNG, they are wildly non-Gaussian.*
 
 <br>
 
-### 4. Bayesian Updating — Incorporating the Evidence
+### 4. Bayesian Updating — What Does the Evidence Say?
 
 $$P(move \mid evidence) \propto P(evidence \mid move) \cdot P(move)$$
 
-Starting from a 20% base rate (UNG moves >7% in a random week), each piece of geopolitical evidence ratchets up the conditional probability:
+Starting from a 20% base rate, each piece of geopolitical evidence ratchets up the conditional probability:
 
 | Evidence | Updated P(big move) |
 |----------|:-------------------:|
@@ -231,58 +287,24 @@ Starting from a 20% base rate (UNG moves >7% in a random week), each piece of ge
 | + Ceasefire rejected | 65% |
 | **+ April 6 deadline** | **72%** |
 
-> **Bayesian posterior: P(UNG moves >7% in the next 2 weeks) = 72%.**
-
-<br>
-
-### 5. LMSR Market Impact — Scalability
-
-$$Impact = \frac{position}{daily\text{\_}volume} \times \sigma_{daily}$$
-
-UNG trades ~$48M/day. A 22-contract position ($26k notional) has a market impact of **0.002%** — negligible. This strategy can scale to 100+ contracts without moving the market.
+> **Bayesian posterior: P(UNG moves >7% in the next 2 weeks) = 72%.** This number is a judgment call — the evidence is real, the weighting is mine.
 
 ---
 
 <br>
 
-## V. Theta Is Your Enemy
-
-<p align="center">
-  <img src="war-planning/charts/04_theta_enemy.png" alt="Theta Decay" width="100%">
-</p>
-
-**Every day the underlying sits flat, long option positions lose money.** This is theta decay — premium evaporating as time passes.
-
-At current IV (60%), a 22-contract UNG straddle bleeds:
-
-| Day | Daily Theta Loss | Cumulative |
-|:---:|:----------------:|:----------:|
-| Day 1-3 | ~$130-160/day | ~$450 |
-| Day 4-5 | ~$180-220/day | ~$850 |
-| Day 6-7 | **~$220-300/day** | **~$1,400** |
-
-> Theta is the cost of carrying optionality. It's the rent paid for the right to profit from disorder. — Taleb's framing
-
-The **calendar spread** is the theta hedge. The short front-month leg decays *faster* than the long back-month leg. Time working against the straddle is partially offset by time working *for* the calendar.
-
-**Practical implication:** Weekly options must be repriced every Thursday. Either the move happened or the remaining premium should be salvaged. Never hold a weekly straddle into Friday afternoon.
-
----
-
-<br>
-
-## VI. IV Crush — The Silent Killer
+## V. IV Crush — The Silent Killer
 
 <p align="center">
   <img src="war-planning/charts/05_iv_crush.png" alt="IV Crush" width="100%">
 </p>
 
-If Hormuz reopens, IV doesn't just decline — **it collapses.** This is IV crush: a sudden contraction in implied volatility that destroys all long options positions simultaneously.
+If Hormuz reopens, IV doesn't just decline — **it collapses.** This is IV crush: a sudden contraction in implied volatility that destroys all long options positions simultaneously. It's the single biggest risk to this campaign.
 
 | Event | IV Move | Straddle Impact | Calendar Impact |
 |-------|:-------:|:---------------:|:---------------:|
 | Hormuz reopens | 60% → 35% | **-40%** | **-60%** |
-| Stalemate continues | Stays 55-65% | Neutral (theta eats) | **Slight positive** |
+| Stalemate continues | Stays 55-65% | Neutral (theta bleeds) | **Slight positive** |
 | Headlines spike fear | 60% → 80% | **+25%** | **+50%** |
 | Full escalation | 60% → 120% | **+80%** | **+180%** |
 
@@ -294,13 +316,13 @@ Calendar spreads are **more vulnerable** to IV crush because their entire edge d
 
 <br>
 
-## VII. The Trinity: Straddle vs Strangle vs Calendar
+## VI. The Trinity: Straddle vs Strangle vs Calendar
 
 <p align="center">
   <img src="war-planning/charts/06_trinity_comparison.png" alt="Trinity Comparison" width="100%">
 </p>
 
-Three instruments, three risk profiles, three scenarios where each dominates:
+Three instruments, three risk profiles:
 
 | | Straddle | Strangle | Calendar |
 |:--|:--------:|:--------:|:--------:|
@@ -309,12 +331,11 @@ Three instruments, three risk profiles, three scenarios where each dominates:
 | **Breakeven** | ±7.1% | ±8-9% | Stay near strike |
 | **Wins when** | Big move | **Bigger** move | IV expands |
 | **Loses when** | Flat | Flat | Big move OR IV crush |
-| **Theta** | Enemy | Enemy | **Partially hedged** |
 | **Vega** | Moderate | Low | **Maximum** |
 | **Contracts per $1k** | 11 | **28** | 14 |
 | **Taleb alignment** | Good | **Best** | Vega play |
 
-For aggressive deployment, **strangles are the primary weapon** — 2.4x cheaper per contract, more leverage per dollar, and aligned with the Taleb barbell (small premium, large convex payoff).
+Strangles are the primary weapon — 2.4x cheaper per contract, more leverage per dollar, and the most aligned with the barbell framework (small premium, large convex payoff).
 
 Calendars are the **vega hedge** for feint weeks when headlines spike IV but the underlying doesn't move enough to break even on strangles.
 
@@ -322,7 +343,7 @@ Calendars are the **vega hedge** for feint weeks when headlines spike IV but the
 
 <br>
 
-## VIII. The Black Swan Campaign
+## VII. The Black Swan Campaign
 
 <p align="center">
   <img src="war-planning/charts/07_black_swan_campaign.png" alt="Black Swan Campaign" width="100%">
@@ -330,25 +351,26 @@ Calendars are the **vega hedge** for feint weeks when headlines spike IV but the
 
 <div align="center">
 
-> *"Lose small, often. Win big, rarely. The math works."* — Taleb
+> *"I want to live happily in a world I don't understand."*
+> — Nassim Nicholas Taleb, *The Black Swan*
 
 </div>
 
 Over 26 weeks of buying strangles, **most weeks expire worthless.** The cumulative bleed looks painful. But the weeks where UNG moves 15-25% generate returns that dwarf all accumulated losses combined.
 
-The math only works if three conditions hold:
+The math requires three conditions:
 
-1. **Survival** — Kelly sizing prevents ruin during losing streaks
-2. **Persistence** — The campaign must still be active when the black swan arrives (don't quit at week 8)
-3. **Edge** — The mispricing is real (IV rank 15% + active Hormuz crisis = confirmed)
+1. **Survival** — Kelly sizing prevents ruin during the inevitable losing streaks
+2. **Persistence** — The campaign must still be running when the black swan arrives
+3. **Edge** — The mispricing has to be real, not just wished into existence
 
-This is the Taleb barbell in its purest form: **97% of capital in safety (cash/T-bills), 3% per week in convex bets with asymmetric upside.**
+Conditions 1 and 2 are within my control. Condition 3 is the interpretive leap from [Section 0](#0-the-volatility-premium-problem).
 
 ---
 
 <br>
 
-## IX. Capital Deployment — 2x Aggressive
+## VIII. Capital Deployment — 2x Aggressive
 
 <p align="center">
   <img src="war-planning/charts/08_capital_deployment.png" alt="Capital Deployment" width="100%">
@@ -370,13 +392,13 @@ This is the Taleb barbell in its purest form: **97% of capital in safety (cash/T
 
 > **Cash always preserved: minimum $15,000+ (50%+ of bankroll at any point)**
 
-Deployment is **front-loaded toward the deadline week** (April 6) and gradually decreases as either the thesis plays out or the edge erodes. The calendar/strangle mix shifts based on the crisis phase: more calendars during negotiation (feints spike IV), more strangles approaching the binary event.
+The deployment is front-loaded toward the April 6 deadline and gradually decreases. The calendar/strangle mix shifts based on the crisis phase: more calendars during negotiation (feints spike IV), more strangles approaching the binary event.
 
 ---
 
 <br>
 
-## X. Monte Carlo Simulation
+## IX. Monte Carlo Simulation
 
 <p align="center">
   <img src="war-planning/charts/09_monte_carlo_paths.png" alt="Monte Carlo Simulation" width="100%">
@@ -388,49 +410,40 @@ Deployment is **front-loaded toward the deadline week** (April 6) and gradually 
 - **Red paths** — end below $30k (loss)
 - **Blue line** — median outcome
 
-The distribution is **positively skewed** — most paths cluster slightly below $30k (the weekly bleed), but profitable paths extend much further right (black swan payoffs). This is the statistical signature of a long-volatility strategy: frequent small losses, infrequent large gains.
+The distribution is **positively skewed**: most paths cluster slightly below $30k (the weekly bleed), but profitable paths extend further right (black swan payoffs). This is the statistical signature of long-volatility — frequent small losses, infrequent large gains. The campaign is a bet on the shape of the distribution, not on any single week.
 
 ---
 
 <br>
 
-## XI. The Decision Tree
+## X. The Decision Tree
 
 <p align="center">
   <img src="war-planning/charts/10_decision_tree.png" alt="Decision Tree" width="100%">
 </p>
 
-### Weekly Execution Protocol
+### Weekly Protocol
 
-**Every Monday morning:**
+**Monday:** Deploy per the phase plan. Buy strangles (OTM Put $11 / Call $13, nearest weekly expiry) and calendars (sell nearest weekly $12C / buy next monthly $12C). Set alerts.
 
-| Step | Action |
-|:----:|--------|
-| 1 | Check UNG spot price and IV rank on [Barchart](https://www.barchart.com/options/iv-rank-percentile) |
-| 2 | If IV rank > 60% → **skip this week** (vol too expensive) |
-| 3 | If IV rank < 60% → deploy per the phase plan |
-| 4 | Buy strangles: OTM Put $11 / Call $13, nearest weekly expiry |
-| 5 | Buy calendars: Sell nearest weekly $12C / Buy next monthly $12C |
-| 6 | Set sell alerts (see [Section XII](#xii-alerting-schedule-for-fidelity)) |
+**Tuesday-Wednesday:** 3-minute check, morning and afternoon. If no alert fires, do nothing.
 
-**Every Thursday:**
+**Thursday:** Decision day. Sell strangles if profitable or salvage remaining premium if near-worthless. Let calendars ride.
 
-- If strangles are profitable → **sell to close**
-- If strangles are near-worthless → **sell to salvage** remaining premium
-- Let calendars ride (they have weeks of time left)
+**Friday:** Strangles expire. Calendars survive. Review the week.
 
 **April 6 (Trump Deadline):**
 
-| Outcome | Action |
-|---------|--------|
-| Iran opens Hormuz | **Close everything immediately.** IV crushes. |
-| Stalemate / extension | **Continue the campaign.** The feint pattern persists. |
+| Outcome | Response |
+|---------|----------|
+| Iran opens Hormuz | **Close everything.** IV crushes. Campaign over. |
+| Stalemate / extension | **Continue.** The feint pattern persists. |
 | US military ops begin | **Go 100% strangles, close calendars.** This is the real move. |
 
 ### Stop Rules
 
 > 1. **Hormuz reopens** → stop immediately
-> 2. **IV rank > 60%** → stop (vol too expensive to buy)
+> 2. **IV rank > 60%** → pause (vol too expensive to buy)
 > 3. **Bankroll < $22k (-27%)** → cut weekly size in half
 > 4. **Bankroll < $18k (-40%)** → pause for 2 weeks, reassess
 
@@ -438,104 +451,68 @@ The distribution is **positively skewed** — most paths cluster slightly below 
 
 <br>
 
-## XII. Alerting Schedule for Fidelity
+## XI. Alerting Schedule for Fidelity
 
-*A practical monitoring system for someone with a day job who trades weekly options on Fidelity.*
+*How someone with a day job monitors weekly options positions.*
 
-### The Problem
+### Layer 1: Fidelity Price Alerts (Set Once)
 
-Weekly options decay fast. A position entered Monday can lose 70% of its value by Friday if nothing happens. But a headline can hit at 2am or during a meeting. Missing a 15% UNG gap because of a lunch break means leaving thousands on the table.
+On Fidelity, go to **Alerts → Price Alerts** and set on UNG:
 
-### The Solution: Three-Layer Alert System
-
-This repo includes an automated position monitor (`src/alerts/monitor.py`) that checks live option prices and calls via Twilio when thresholds are hit. But even without the automated system, here's the manual Fidelity schedule that covers a working person:
-
-<br>
-
-#### Layer 1: Fidelity Price Alerts (Set Once, Fire Automatically)
-
-On Fidelity, go to **Alerts → Price Alerts** and set these on UNG:
-
-| Alert | UNG Price | What It Means | Action When Triggered |
-|:-----:|:---------:|---------------|----------------------|
-| **Above $13.00** | +10% from $11.84 | Strangle call leg is deep ITM | Open Fidelity, sell strangles |
-| **Above $14.00** | +18% | Massive move — take full profit | Sell everything |
-| **Below $10.80** | -9% | Strangle put leg is deep ITM | Open Fidelity, sell strangles |
-| **Below $10.00** | -16% | Massive move — take full profit | Sell everything |
+| Alert | UNG Price | Meaning | Action |
+|:-----:|:---------:|---------|--------|
+| Above $13.00 | +10% | Strangle call leg deep ITM | Open Fidelity, sell strangles |
+| Above $14.00 | +18% | Massive move | Sell everything |
+| Below $10.80 | -9% | Strangle put leg deep ITM | Open Fidelity, sell strangles |
+| Below $10.00 | -16% | Massive move | Sell everything |
 
 These fire as push notifications on the Fidelity mobile app. No coding required.
 
-<br>
+### Layer 2: The Daily 3-Minute Check
 
-#### Layer 2: The Daily 3-Minute Check
+| Time | What to Check |
+|:----:|---------------|
+| **7:00 AM** | Overnight futures, Iran headlines |
+| **9:45 AM** | UNG price, option bid/ask, any gap from open |
+| **1:00 PM** | Position P&L, any news alerts |
+| **3:45 PM** | **Thursday only:** Decide sell or hold |
 
-| Time | What to Check | Tool |
-|:----:|---------------|------|
-| **7:00 AM** (before market) | Overnight futures, Iran headlines | Fidelity app, Twitter/X |
-| **9:45 AM** (15 min after open) | UNG price, option bid/ask, any gap | Fidelity Active Trader Pro |
-| **1:00 PM** (midday) | Position P&L, any news alerts fired | Fidelity app |
-| **3:45 PM** (15 min before close) | **Thursday only:** Decide sell or hold | Fidelity app |
+Total: ~12 minutes/day, 4 days/week.
 
-Total time: **~12 minutes/day, 4 days/week.** This isn't day trading. It's checking a thermometer.
+### Layer 3: Automated Phone Alerts (This Repo)
 
-<br>
+The `src/alerts/monitor.py` module checks live option prices every 60 seconds and **calls via Twilio** when positions hit thresholds:
 
-#### Layer 3: Automated Phone Alerts (This Repo)
+| Trigger | Notification |
+|---------|:------------:|
+| Position value +100% | Phone call + SMS |
+| Position value +50% | Phone call |
+| Position value -70% | Phone call |
+| < 20 hours to expiry | SMS |
 
-The `src/alerts/monitor.py` module checks live option prices every 60 seconds during market hours and **calls via Twilio** when:
-
-| Alert Level | Trigger | Notification |
-|:-----------:|---------|:------------:|
-| **URGENT** | Position value +100% (doubled) | Phone call + SMS |
-| **WARNING** | Position value +50% (profit target) | Phone call |
-| **WARNING** | Position value -70% (stop loss) | Phone call |
-| **INFO** | < 20 hours to expiry | SMS only |
-
-Setup:
 ```bash
-# Install service (runs on login, auto-restarts)
+# Install as persistent service
 bash src/alerts/install_service.sh
-
-# Or run manually
-poetry run python -m src.alerts.monitor --run
 ```
 
-Requires Twilio credentials in `.env`. See `src/alerts/monitor.py` for full documentation.
+### The Weekly Rhythm
 
-<br>
+| Day | AM | PM |
+|:---:|----|----|
+| **Mon** | Place strangles + calendars | Verify fills, set alerts |
+| Tue | 3-min check | 3-min check |
+| Wed | 3-min check | 3-min check |
+| **Thu** | 3-min check | **Sell or hold decision** |
+| Fri | Check if holding anything | Strangles expire. Review. |
+| **Sat-Sun** | **Geopolitical watch.** If a headline breaks, Monday gaps. | |
 
-#### The Weekly Rhythm
-
-| Day | Morning | Afternoon | Evening |
-|:---:|---------|-----------|---------|
-| **Monday** | Place new strangles + calendars per phase plan | Verify fills, set Fidelity alerts | — |
-| Tuesday | 3-min check | 3-min check | Scan Iran headlines |
-| Wednesday | 3-min check | 3-min check | — |
-| **Thursday** | 3-min check | **DECISION: sell strangles or hold to Friday** | Update positions.json |
-| Friday | Only check if holding overnight strangles | Strangles expire. Calendars survive. | Review week, plan Monday |
-| Sat/Sun | **Geopolitical watch only** — if Hormuz headline breaks, Monday will gap | — | — |
-
-<br>
-
-#### The Antifragile Mindset for Alerts
-
-> *"The best alarm is the one that wakes you up before the fire reaches the bedroom, not after."*
-
-The alerting system should trigger **action, not anxiety.** Key principles:
-
-1. **Set it and forget it.** Fidelity price alerts + the automated monitor handle the watching. The job is to *respond* to alerts, not to stare at screens.
-
-2. **Thursday is the only decision day.** Monday is execution (buy). Thursday is judgment (sell or hold). Every other day is just checking the thermometer. If no alert fires, do nothing.
-
-3. **Weekend headlines are the catalyst.** The biggest moves happen Monday morning on weekend news. The strangles are sized to capture Monday gaps. There's nothing to do on weekends except read the news and mentally prepare.
-
-4. **IV rank is the meta-alert.** Check it once per week on [Barchart](https://www.barchart.com/options/iv-rank-percentile). If it crosses 60%, the campaign pauses — vol is no longer cheap. If it drops below 10%, vol is extremely cheap — consider increasing size.
+The alerting system should trigger **action, not anxiety.** Set it and forget it. Respond to alerts, don't stare at screens. IV rank is the meta-alert — check it once per week on [Barchart](https://www.barchart.com/options/iv-rank-percentile). If it crosses 60%, pause the campaign.
 
 ---
 
 <br>
 
-## XIII. Sources
+## XII. Sources
 
 ### Geopolitical Intelligence
 
@@ -567,11 +544,10 @@ The alerting system should trigger **action, not anxiety.** Key principles:
 | Work | Citation |
 |------|----------|
 | Kelly Criterion | Kelly, J.L. "A New Interpretation of Information Rate." *Bell System Technical Journal*, 1956. |
-| Black Swan Theory | Taleb, N.N. *The Black Swan: The Impact of the Highly Improbable*. Random House, 2007. |
-| Antifragility | Taleb, N.N. *Antifragile: Things That Gain from Disorder*. Random House, 2012. |
 | Dynamic Hedging | Taleb, N.N. *Dynamic Hedging: Managing Vanilla and Exotic Options*. Wiley, 1997. |
 | Fooled by Randomness | Taleb, N.N. *Fooled by Randomness: The Hidden Role of Chance*. Random House, 2001. |
-| LMSR Market Maker | Hanson, R. "Combinatorial Information Market Design." *Information Systems Frontiers*, 2003. |
+| Black Swan Theory | Taleb, N.N. *The Black Swan: The Impact of the Highly Improbable*. Random House, 2007. |
+| Antifragility | Taleb, N.N. *Antifragile: Things That Gain from Disorder*. Random House, 2012. |
 | Options Pricing | Black, F. & Scholes, M. "The Pricing of Options and Corporate Liabilities." *J. Political Economy*, 1973. |
 | Military Strategy | Clausewitz, C. von. *On War*. 1832. |
 
@@ -583,9 +559,9 @@ The alerting system should trigger **action, not anxiety.** Key principles:
 
 ### Disclaimer
 
-*This is not financial advice. This is a quantitative framework for thinking about volatility positioning during geopolitical crises, built for educational and research purposes. All options trades involve risk of total loss of premium. Consult a financial advisor before making investment decisions.*
+*This is not financial advice. It's a dated record of one person's attempt to apply quantitative volatility analysis to a geopolitical crisis, built for educational purposes with AI agents. All options trades involve risk of total loss of premium. The positions described are real. The outcome is unknown.*
 
-*Generated by the AI Hedge Fund system with the Nassim Taleb Antifragile Volatility Agent, Renaissance Technologies Quant Agent, and custom analysis tooling.*
+*Built with the [AI Hedge Fund](README_ORIGINAL.md) system, the Nassim Taleb Antifragile Volatility Agent, and custom analysis tooling.*
 
 <br>
 
