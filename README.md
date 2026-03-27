@@ -48,9 +48,10 @@ $60K Bankroll | 2x Aggressive Kelly | 26 Weeks
 | VIII | [Capital Deployment](#viii-capital-deployment--2-aggressive) | Phase-adjusted week-by-week allocation |
 | IX | [Monte Carlo](#ix-monte-carlo-simulation) | 1,000 simulated 26-week campaigns |
 | X | [Decision Tree](#x-the-decision-tree) | The execution protocol I'm following |
-| XI | [Alerting for Fidelity](#xi-alerting-schedule-for-fidelity) | How someone with a day job monitors weekly options |
-| XII | [Taleb Reports](#xii-taleb-reports) | Full analysis reports — strangle scoring, second-order plays, LNG, vega calendars |
-| XIII | [Sources](#xiii-sources) | Geopolitical, market, and quantitative theory citations |
+| XI | [Trade Log: The Leg-Out](#xi-trade-log-the-leg-out) | Why I sold the put and held the call — vanna, theta, and directional conviction |
+| XII | [Alerting for Fidelity](#xii-alerting-schedule-for-fidelity) | How someone with a day job monitors weekly options |
+| XIII | [Taleb Reports](#xiii-taleb-reports) | Full analysis reports — strangle scoring, second-order plays, LNG, vega calendars |
+| XIV | [Sources](#xiv-sources) | Geopolitical, market, and quantitative theory citations |
 
 ---
 
@@ -498,7 +499,91 @@ The distribution is **positively skewed**: most paths cluster slightly below $60
 
 <br>
 
-## XI. Alerting Schedule for Fidelity
+## XI. Trade Log: The Leg-Out
+
+*March 27, 2026 — 10:15 AM ET*
+
+### The Position
+
+22 contracts of the UNG $12 straddle (put + call), entered March 26 at $0.39/share ($850.80 total). Expiry: April 1 (Tuesday). By Friday morning the put was up +37% and the call was down -35%. The straddle was profitable — but the **vanna thesis was fighting theta**, and theta was winning.
+
+### What I Did
+
+**Sold the put. Held the call.**
+
+The put sale locked in ~$671. The remaining call has a cost basis of ~$187 — that's my max downside. If the call expires worthless, I'm still **net +$242 on the entire trade**. If UNG gaps up Monday on an escalation headline, the call prints and I keep the put profit.
+
+### Why: The Vanna-Theta Collision
+
+The entry logic was correct — low IVR (15th percentile), known unpriced catalyst, ATM for maximum vanna sensitivity. But I started the clock at **4 DTE** instead of 10–21 DTE, which meant vanna and charm were in direct competition from day one.
+
+$$\text{Theta decay} \propto \frac{1}{\sqrt{DTE}}$$
+
+At 21 DTE, you pay a small daily bleed while vanna works in your favor. At 4 DTE, theta is consuming your position faster than IV expansion can replenish it — unless the IV move is large and immediate. The weekend compounds this: **3 calendar days of theta decay for 0 trading days of gamma opportunity.**
+
+The straddle's weekend theta cost: **~$454** (22 contracts). The call-only weekend theta: **~$227**. Legging out the put saves half the bleed.
+
+### The Directional Conviction
+
+I'm not neutral on direction anymore. The evidence points upward:
+
+- Iran's Defence Council threatened **mine-laying across all Gulf sea lanes** — a new escalation beyond just Hormuz closure
+- Trump warned Iran to agree "before it is too late" — markets fell on the threat
+- Shipping analysts assess **routine Hormuz transit won't resume in 2026**
+- The crisis is getting hotter, not cooler
+
+If I'm directionally convicted that the weekend risk skews upward, holding a put that bleeds theta against my thesis is paying insurance I don't believe I need.
+
+### What I'm Choosing to Miss
+
+This is the honest part. By selling the put, I'm giving up protection against scenarios that are real:
+
+| Scenario | UNG Direction | Magnitude | Probability | Straddle P&L | Call-Only P&L |
+|:---------|:------------:|:---------:|:-----------:|:------------:|:-------------:|
+| Partial escalation, LNG disruption continues | Up | +8–15% | **Highest** | +$1,046 | **+$1,645** |
+| Full Hormuz closure, no quick resolution | Up then down | +15% gap, then reversal | Moderate | +$2,540 | **+$3,162** |
+| US successfully reopens strait / ceasefire | **Down hard** | -10–20% | Moderate | **+$904** | -$186 |
+| Full regional war, demand destruction | **Down** | -15–25% over days | Lower but real | **+$1,500+** | -$187 |
+| Stalemate, no new developments | Flat | ±3% | Present | -$112 | **+$21** |
+
+The third and fourth rows are the ones that hurt. If Hormuz reopens over the weekend or demand destruction pricing kicks in, the put I sold would have been the winning leg. I'm accepting that risk in exchange for:
+
+1. **Halving my weekend theta bleed** ($227 saved)
+2. **Locking in $671** regardless of what happens Monday
+3. **Converting to a pure directional bet** aligned with my actual conviction
+
+The probability-weighted EV favors legging out by **~$219** given my scenario weights. But EV isn't certainty — it's a weighted average across futures I can't see.
+
+<p align="center">
+  <img src="outputs/taleb-strangle-analysis/charts/leg_out_analysis.png" alt="Leg Out Analysis" width="100%">
+</p>
+
+The gold line (leg out) dominates the blue line (straddle) everywhere above $11.80. Below that, the straddle wins — and I'm choosing to miss that.
+
+### The Lesson for Next Time
+
+The vanna play was right. The structure was wrong. For uncertain-timing catalysts at low IVR:
+
+| Parameter | What I Did | What I Should Have Done |
+|-----------|:----------:|:-----------------------:|
+| Entry date | March 26 (4 DTE) | March 10–16 (10–21 DTE) |
+| IVR at entry | ~15% (good) | Same — IVR was already low then |
+| Vanna runway | 4 days, charm immediate | 10–21 days before charm dominates |
+| Structure | ATM straddle (correct) | ATM straddle or strangle (same) |
+| Expiry | April 1 (too soon) | April 15+ (covers multiple event windows) |
+
+The rule to carry forward: **when IVR is below 40 and your catalyst has uncertain timing, always buy enough DTE to cover at least two potential event windows.** The premium cost at low IVR is worth it. I compressed three potential payoff windows (this weekend, next week's EIA, April 6 deadline) into one by going 4 DTE.
+
+> *"The option buyer doesn't need to be right about direction. They need to be right that the world is more uncertain than the market thinks."*
+> — paraphrasing Taleb
+
+I was right about the uncertainty. I was wrong about the clock.
+
+---
+
+<br>
+
+## XII. Alerting Schedule for Fidelity
 
 *How someone with a day job monitors weekly options positions.*
 
@@ -559,7 +644,7 @@ The alerting system should trigger **action, not anxiety.** Set it and forget it
 
 <br>
 
-## XII. Taleb Reports
+## XIII. Taleb Reports
 
 The full quantitative analysis behind every claim in this document. Each report was generated by running live market data through the Nassim Taleb agent and custom analysis scripts.
 
@@ -579,7 +664,7 @@ Each report includes its own charts — 48 visualizations total across all repor
 
 <br>
 
-## XIII. Sources
+## XIV. Sources
 
 ### Geopolitical Intelligence
 
