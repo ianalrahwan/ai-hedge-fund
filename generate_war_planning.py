@@ -352,14 +352,14 @@ summary_text = """THE FIVE EQUATIONS SAY:
     Your position is dust in UNG volume
     Scale freely up to 100+ contracts"""
 
-ax.text(0.5, 5, summary_text, transform=ax.transAxes, fontsize=11,
+ax.text(0.5, 0.5, summary_text, transform=ax.transAxes, fontsize=11,
         color=TEXT_COLOR, ha="center", va="center", fontfamily="monospace",
         bbox=dict(boxstyle="round,pad=0.8", facecolor=CARD_BG, edgecolor=ACCENT, linewidth=2))
 ax.set_title("COMBINED VERDICT", color=ACCENT, fontsize=14, fontweight="bold", pad=14)
 
 plt.suptitle("THE FIVE QUANT EQUATIONS — Applied to UNG Hormuz Campaign",
-             color=TEXT_COLOR, fontsize=16, fontweight="bold", y=1.02)
-plt.tight_layout()
+             color=TEXT_COLOR, fontsize=16, fontweight="bold", y=0.98)
+plt.tight_layout(rect=[0, 0, 1, 0.96])
 plt.savefig(f"{OUT}/03_five_equations.png", dpi=150, facecolor=DARK_BG, bbox_inches="tight")
 plt.close()
 print("  3/10 Five equations")
