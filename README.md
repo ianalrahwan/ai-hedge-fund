@@ -531,13 +531,13 @@ UNG opened Friday at **$12.16** — up 2.7% from yesterday's $11.84 close. The p
 | Current total value (put proceeds + call) | $1,474 |
 | **Unrealized P&L** | **-$242** |
 
-I'm still down $242 on the full trade. The put sale doesn't "lock in profit" — it **recovers $550 of my $1,716 cost** and **cuts my max loss from $1,716 to $242** (if the call expires worthless). The call needs UNG at **~$12.53** (+3% from here) by Tuesday to break even on the whole trade.
+I'm still down $242 on the full trade. The put sale doesn't "lock in profit" — it **recovers $550 of my $1,716 cost** and **cuts my max loss from $1,716 to $1266** (if the call expires worthless). The call needs UNG at **~$12.53** (+3% from here) by Tuesday to break even on the whole trade.
 
 ### Why I Sold the Put Now
 
 The put is decaying in two directions simultaneously:
 
-1. **UNG moved above the strike.** At $12.16, the $12 put is OTM with only $0.25 of time value left. If UNG keeps going up, this put goes to zero and I get nothing for it.
+1. **UNG moved above the strike.** At $12.16, the $12 put is OTM with only $0.25 of time value left. If UNG keeps going up, this put goes to zero and I get nothing for it. I am still feeling out how to understand time value vs theoretical value.
 2. **Weekend theta.** 3 calendar days of decay for 0 trading days. The put is pure time value — it has no intrinsic protection to fall back on. By Tuesday it's dust.
 
 Selling at $0.25 is better than watching it decay to $0.05.
@@ -577,7 +577,7 @@ This is the honest part. By selling the put, I'm giving up protection against sc
 
 The third and fourth rows are the ones that hurt. If Hormuz reopens over the weekend or demand destruction pricing kicks in, the put I sold would have been the winning leg. I'm accepting that risk in exchange for:
 
-1. **Cutting max loss from $1,716 to $242**
+1. **Cutting max loss from $1,716 to $1,266 **
 2. **Halving my weekend theta bleed** ($227 saved)
 3. **Recovering $550 now** before the put decays further
 4. **Converting to a pure directional bet** aligned with my actual conviction — UNG needs +3% by Tuesday, one escalation headline away
@@ -600,8 +600,7 @@ The vanna play was right. The structure was wrong. For uncertain-timing catalyst
 
 The rule to carry forward: **when IVR is below 40 and your catalyst has uncertain timing, always buy enough DTE to cover at least two potential event windows.** The premium cost at low IVR is worth it. I compressed three potential payoff windows (this weekend, next week's EIA, April 6 deadline) into one by going 4 DTE.
 
-> * OVERALL, if the entire time I though ung would sag into Friday before a massive gamma up over a war escalation - I only paid for the premium and theta decay of the put option expecting a flush. This is called legging out. I should have recognizing that my actual thesis for the weekend WAS NOT a pure vanna play, but a dynamic ratio with a path dependency assuming first a volatile downswing I was getting cheap on the vega compression.
-> *
+> * OVERALL, if the entire time I thought UNG would sag into Friday before a massive gamma up over a war escalation, I just paid for the premium and theta decay of the put option expecting a flush. This is called legging out. As a complete newbie, I did not have a term for that as I was talking to Claude. I should have recognizing that my actual thesis for the weekend WAS NOT a pure vanna play, but a dynamic ratio with a path dependency assuming that first a volatile downswing would occur due to false optimism of propaganda and then second a massive problem over the weekend. Then I'd be getting extra downwards gamma cheap on the vega compression. I am getting increasingly interested in second order greeks like vanna and charm. I'm not considering a longer dated April 17th option on ADP depending on its IVR and what happens this weekend. 
 
 ---
 
