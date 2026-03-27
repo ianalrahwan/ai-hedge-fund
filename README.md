@@ -1,6 +1,6 @@
 <div align="center">
 
-# WAR PLANNING
+# THE VEGA WAR ROOM PROJECT 
 
 **A Long-Volatility Campaign Against the Hormuz Crisis**
 
@@ -22,19 +22,22 @@ $30K Bankroll | 2x Aggressive Kelly | 26 Weeks
 
 </div>
 
-> **This is a blogpost, not a trading manual.** It documents what I'm trying, why I'm trying it, and what the AI agents I built think about it. The positions are real. The analysis is dated. The outcome is unknown. None of this is financial advice.
+> **The Vega War Room Project is a blogpost for a largely vibe-coded project -- not a trading manual.** It documents what I'm trying, why I'm trying it, and what the AI agents I built think about it. The positions are real. The analysis is dated. The outcome is unknown. None of this is financial advice. I am putting my real money on the line to give myself skin-in-the-game for ripping tokens through a Claude Max Pro Subscription. In the before times, I used to bet with one of my good friends in college with an accountability app that would donate to anti-charities (think your worst nightmare of a social cause) if you failed a goal. Now, it's just my Fidelity. 
 
-> **Looking for the original AI Hedge Fund README?** See [README_ORIGINAL.md](README_ORIGINAL.md)
+
+
+> **This is based off of a fork from an open source repo I found on X. Looking for the original AI Hedge Fund README?** See [README_ORIGINAL.md](README_ORIGINAL.md)
 
 <br>
 
-*Entry date: March 26, 2026*
+*PART 1: Entry date: March 26, 2026*
 
 ## Table of Contents
 
 | # | Section | |
 |:-:|---------|---|
 | 0 | [The Volatility Premium Problem](#0-the-volatility-premium-problem) | Why buying options is usually a losing game, and why a war changes that |
+| 0.5 | [Why UNG Is the Monster Pick](#05-why-ung-is-the-monster-pick) | UNG vs top candidates — and the IV crush pattern the market isn't pricing |
 | I | [Situation Assessment](#i-situation-assessment) | The crisis timeline and the April 6 inflection point |
 | II | [The Nassim Taleb Agent](#ii-the-nassim-taleb-agent) | AI agent output — the quantitative case for long vol on UNG |
 | III | [Clausewitz Escalation Ladder](#iii-the-clausewitz-escalation-ladder) | Why Iran always feints before the real move |
@@ -46,7 +49,8 @@ $30K Bankroll | 2x Aggressive Kelly | 26 Weeks
 | IX | [Monte Carlo](#ix-monte-carlo-simulation) | 1,000 simulated 26-week campaigns |
 | X | [Decision Tree](#x-the-decision-tree) | The execution protocol I'm following |
 | XI | [Alerting for Fidelity](#xi-alerting-schedule-for-fidelity) | How someone with a day job monitors weekly options |
-| XII | [Sources](#xii-sources) | Geopolitical, market, and quantitative theory citations |
+| XII | [Taleb Reports](#xii-taleb-reports) | Full analysis reports — strangle scoring, second-order plays, LNG, vega calendars |
+| XIII | [Sources](#xiii-sources) | Geopolitical, market, and quantitative theory citations |
 
 ---
 
@@ -97,6 +101,49 @@ This is the Taleb framework: **pay a small, known cost for the right to profit f
 
 > *"The option buyer doesn't need to be right about direction. They need to be right that the world is more uncertain than the market thinks."*
 > — paraphrasing Taleb, *Dynamic Hedging* (1997)
+
+---
+
+<br>
+
+## 0.5 Why UNG Is the Monster Pick
+
+### UNG vs the Top 3 Candidates
+
+<p align="center">
+  <img src="outputs/taleb-strangle-analysis/charts/ung_monster_pick.png" alt="UNG Monster Pick Comparison" width="100%">
+</p>
+
+I screened six tickers through the Nassim Taleb agent — UNG, MCHI, TSM, EWT, EWJ, and INDA. Four made the cut. Here's why UNG isn't just the winner — it's a different species.
+
+| Metric | UNG | MCHI | TSM | EWJ |
+|--------|:---:|:----:|:---:|:---:|
+| **IV Rank** | **15%** | 29% | 32% | 57% |
+| **Kurtosis** | **7.1** | 5.7 | 2.8 | 5.3 |
+| **Gap Days (>3%)** | **39%** | 5% | 18% | 4% |
+| **Composite Score** | **37.4/50** | 25.6/50 | 22.5/50 | 22.0/50 |
+
+UNG is cheapest on vol, fattest on tails, and most explosive on gap frequency — by a wide margin. The gap between UNG and the #2 pick (MCHI) is **larger than the gap between #2 and #4**. This isn't a close call.
+
+MCHI and TSM are real plays — cheap vol, real geopolitical catalysts. But UNG is the one where all five Talebian factors align simultaneously.
+
+### The IV Crush Pattern the Market Isn't Pricing
+
+<p align="center">
+  <img src="outputs/taleb-strangle-analysis/charts/iv_crush_not_priced_in.png" alt="IV Crush Not Priced In" width="100%">
+</p>
+
+This is the chart that tells the whole story. Look at the top panel: UNG's volatility towers over every other candidate. It peaked at **145%** in February 2026 and has since crashed to **50%**. The market sees that crash and anchors to it — *vol spiked, vol crushed, move on.*
+
+But look at the bottom panel. UNG's IV rank has crushed to cheap levels **5 times** in the past year. Every single time, it re-exploded. The cycle repeats: spike → crush → cheap → spike → crush → cheap. The volatility premium — the assumption that selling vol is a free lunch — is built on the idea that a crush means calm returns. **For UNG, a crush means a reload.**
+
+The current IV rank sits at the **15th percentile** — during an active war over the world's most important energy chokepoint. The options market is pricing UNG as if the Feb spike was a one-off event and the world has returned to normal. The world has not returned to normal. Hormuz is still closed. QatarGas declared force majeure. The April 6 deadline is 11 days away.
+
+> **The volatility premium is anchoring to the crush. The crush is the opportunity.**
+
+The other three candidates don't show this pattern. MCHI and TSM have relatively flat vol histories — their current cheapness is real but doesn't come with the same cyclical reload dynamic. EWJ's vol already expanded to the 57th percentile. Only UNG gives you the combination of: cheap premiums *and* a proven history of explosive re-expansion *and* a live geopolitical catalyst.
+
+> For the full quantitative breakdown across all six tickers, see the [Taleb Reports](#xii-taleb-reports) below.
 
 ---
 
@@ -512,7 +559,27 @@ The alerting system should trigger **action, not anxiety.** Set it and forget it
 
 <br>
 
-## XII. Sources
+## XII. Taleb Reports
+
+The full quantitative analysis behind every claim in this document. Each report was generated by running live market data through the Nassim Taleb agent and custom analysis scripts.
+
+| Report | What It Covers | Key Finding |
+|--------|---------------|-------------|
+| [**Taleb Strangle Analysis**](outputs/taleb-strangle-analysis/taleb_strangle_analysis.md) | 6-ticker screen: IV rank, kurtosis, gap frequency, vega efficiency, composite scoring | UNG scores 37.4/50 — 46% higher than #2 (MCHI). The gap is not close. |
+| [**LNG & Hormuz Deep Dive**](outputs/taleb-strangle-analysis/lng-hormuz/lng_hormuz_analysis.md) | UNG vs BOIL (2x leveraged), strangle win rates, correlation analysis | BOIL has higher kurtosis (8.9) but 13.1% breakeven vs UNG's 7.2%. Stick with UNG for granular sizing. |
+| [**Hormuz Supply Chain Cascade**](outputs/taleb-strangle-analysis/hormuz_cascade_analysis.md) | Second/third-order plays: helium (APD, LIN), agriculture (DBA), shipping (FRO), fertilizers (CF, MOS) | APD (helium) at 29% IV rank is the best non-energy Hormuz play. |
+| [**Iran Second-Order Strategy**](outputs/iran-second-order-plays/iran_second_order_strategy.md) | INDA, EWJ, MCHI, EWT — how the market caught up on some but not others | EWY jumped from 32% → 94% IV rank in 2 days. INDA strangles cost $0.002 — 1,222x leverage vs EWY. |
+| [**Vega Calendar Spreads**](outputs/vega-calendar-spreads/vega_calendar_analysis.md) | UNG calendar spread construction: sell Apr 2 $12C / buy May 15 $12C | Net vega +$1.12/contract per 1% IV move. P&L tent widens with IV expansion. |
+| [**Iran War Straddle Strategy**](outputs/iran-war-straddle-strategy/strangle_strategy.md) | TSM & NVDA bearish-weighted strangles | 92-95% cheaper than straddles. TSM breakeven: -5.8% down, +10.8% up. |
+| [**War Planning (Full Campaign)**](war-planning/WAR_PLANNING.md) | 26-week $30k campaign: timeline, decision tree, Monte Carlo, sizing | 1,000 simulated paths show positively-skewed distribution. Median outcome slightly negative, but profitable paths extend far right. |
+
+Each report includes its own charts — 48 visualizations total across all reports. The data files (`lng_hormuz_data.json`, `ung_chain_data.json`, `taleb_agent_output.json`) contain the raw metrics for independent verification.
+
+---
+
+<br>
+
+## XIII. Sources
 
 ### Geopolitical Intelligence
 
