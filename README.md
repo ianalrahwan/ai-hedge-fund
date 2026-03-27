@@ -22,7 +22,7 @@ $60K Bankroll | 2x Aggressive Kelly | 26 Weeks
 
 </div>
 
-> **The Vega War Room Project is a blogpost for a largely vibe-coded project -- not a trading manual.** It documents what I'm trying, why I'm trying it, and what the AI agents I built think about it. The positions are real. The analysis is dated. The outcome is unknown. None of this is financial advice. I am putting my real money on the line to give myself skin-in-the-game for ripping tokens through a Claude Max Pro Subscription. In the before times, I used to bet with one of my good friends in college with an accountability app that would donate to anti-charities (think your worst nightmare of a social cause) if you failed a goal. Now, it's just my Fidelity. 
+> **The Vega War Room Project is a blogpost for a largely vibe-coded project -- not a trading manual.** The first cardinal sin of investing is trading on geopolitics. The second cardinal sin is trading options. So I am doing both. This blogpost disguised as a README documents what I'm trying, why I'm trying it, and what the AI agents I built think about it. The positions are real. The analysis is dated. The outcome is unknown. None of this is financial advice. I am putting my real money on the line to give myself skin-in-the-game for ripping tokens through a Claude Max Pro Subscription. In the before times, I used to bet with one of my good friends in college with an accountability app that would donate to anti-charities (think your worst nightmare of a social cause) if you failed a goal. Now, it's just my Fidelity. 
 
 
 
@@ -68,9 +68,9 @@ This is a fact. I'm not disputing it. The data is overwhelming: implied vol exce
 
 ### So Why Am I Buying Options?
 
-Because the volatility premium is a *statistical regularity*, not a law of physics. It holds in normal markets. It breaks during **phenomena** — situations where the base assumptions of the model no longer apply.
+Because the volatility premium is a *statistical regularity*, it breaks during **phenomena** — situations where the base assumptions of the model no longer apply.
 
-A quant trader from QuantInsti put it well:
+A quant trader from QuantInsti in a youtube tutorial I watched put it well:
 
 > *"Look for situations where assumptions don't apply. Best when those assumptions are so entrenched that people forget they are there."*
 
@@ -92,12 +92,12 @@ I can't prove the market is mispricing UNG options. Nobody can prove a mispricin
 
 What I can say:
 
-1. **The phenomenon is real.** There is an active war with no ceasefire. The strait is closed. Helium and LNG are offline. There's a hard deadline in 11 days.
+1. **The phenomenon is real.** There is an active war with no ceasefire. The strait is closed. Helium and LNG are offline. Even if we had a ceasefire now, critical LNG infrastructure will take years to recover.
 2. **The statistical edge is interpretive.** The kurtosis, the IV rank, the Bayesian posterior — they all point toward cheap vol. But I'm the one interpreting them.
-3. **I have to do something anyway.** Capital sitting in cash during a crisis is also a position — it's a bet that nothing happens. I'd rather pay a known premium for optionality than bet on tranquility during a war.
-4. **The sizing accounts for being wrong.** Quarter-to-half Kelly means losing 70% of weekly premium every flat week is survivable for 26 weeks. The campaign doesn't need to be right most weeks. It needs to be alive when the black swan arrives.
+3. **During an AI CapEx boom, I have to do something anyway.** I ain't buying 200 p/e tech during the single largest capital expenditures on depreciating physical assets the world has ever seen. I am also not going to sit on a cash position. I'd rather pay a known premium for optionality than bet on tranquility during a war.
+4. **The sizing accounts for being wrong.** Quarter-to-half Kelly means losing 70% of weekly premium every flat week is survivable for 26 weeks. The campaign doesn't need to be right most weeks. It needs to be alive when the black swan arrives. This is not my entire brokerage. Sanity and risk-management applies. This is an agressive, actively-managed, and small position within my overall portfolio. 
 
-This is the Taleb framework: **pay a small, known cost for the right to profit from disorder.** The volatility premium is the cost. The disorder is the edge. Whether the edge is real will only be known in hindsight.
+This is the Taleb framework: **pay a small, known cost for the right to profit from disorder.** The volatility premium is the cost. The disorder is the alpha I believe will decay if not acted on now. Whether the edge is real will only be known in hindsight.
 
 > *"The option buyer doesn't need to be right about direction. They need to be right that the world is more uncertain than the market thinks."*
 > — paraphrasing Taleb, *Dynamic Hedging* (1997)
