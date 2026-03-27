@@ -531,7 +531,7 @@ UNG opened Friday at **$12.16** — up 2.7% from yesterday's $11.84 close. The p
 | Current total value (put proceeds + call) | $1,474 |
 | **Unrealized P&L** | **-$242** |
 
-I'm still down $242 on the full trade. The put sale doesn't "lock in profit" — it **recovers $550 of my $1,716 cost** and **cuts my max loss from $1,716 to $1266** (if the call expires worthless). The call needs UNG at **~$12.53** (+3% from here) by Tuesday to break even on the whole trade.
+I'm still down $242 on the full trade. The put sale doesn't "lock in profit" — it **recovers $550 of my $1,716 cost** and **cuts my max loss from $1,716 to $1,166** (if the call expires worthless). The call needs UNG at **~$12.53** (+3% from here) by Tuesday to break even on the whole trade.
 
 ### Why I Sold the Put Now
 
@@ -577,7 +577,7 @@ This is the honest part. By selling the put, I'm giving up protection against sc
 
 The third and fourth rows are the ones that hurt. If Hormuz reopens over the weekend or demand destruction pricing kicks in, the put I sold would have been the winning leg. I'm accepting that risk in exchange for:
 
-1. **Cutting max loss from $1,716 to $1,266 **
+1. **Cutting max loss from $1,716 to $1,166 **
 2. **Halving my weekend theta bleed** ($227 saved)
 3. **Recovering $550 now** before the put decays further
 4. **Converting to a pure directional bet** aligned with my actual conviction — UNG needs +3% by Tuesday, one escalation headline away
