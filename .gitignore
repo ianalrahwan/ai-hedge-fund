@@ -40,9 +40,6 @@ ENV/
 .DS_Store
 Thumbs.db
 
-# graph — ignore generated PNGs except war-planning charts
-*.png
-!war-planning/charts/*.png
 
 # Txt files
 *.txt

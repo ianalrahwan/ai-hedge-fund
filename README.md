@@ -4,7 +4,7 @@
 
 **A Long-Volatility Campaign Against the Hormuz Crisis**
 
-$30K Bankroll | 2x Aggressive Kelly | 26 Weeks
+$60K Bankroll | 2x Aggressive Kelly | 26 Weeks
 
 [![Built with AI Hedge Fund](https://img.shields.io/badge/built%20with-AI%20Hedge%20Fund-blue)](README_ORIGINAL.md)
 [![Nassim Taleb Agent](https://img.shields.io/badge/agent-Nassim%20Taleb-green)](#ii-the-nassim-taleb-agent)
@@ -291,7 +291,7 @@ $$f^* = \frac{p \cdot b - q}{b}$$
 | q | 53% | Lose probability |
 | **f*** | **12.9%** | Optimal bet as fraction of bankroll |
 
-Full Kelly assumes perfect probability estimates. It's too aggressive. **Quarter Kelly (3.2%)** survives estimation error. I'm running **2x aggressive (6.4%)** — roughly $1,920/week on a $30K bankroll — because the Bayesian posterior on the Hormuz catalyst is high and the campaign has a defined end.
+Full Kelly assumes perfect probability estimates. It's too aggressive. **Quarter Kelly (3.2%)** survives estimation error. I'm running **2x aggressive (6.4%)** — roughly $3,840/week on a $60K bankroll — because the Bayesian posterior on the Hormuz catalyst is high and the campaign has a defined end.
 
 > *Kelly, J.L. "A New Interpretation of Information Rate." Bell System Technical Journal, 1956.*
 
@@ -423,21 +423,21 @@ Conditions 1 and 2 are within my control. Condition 3 is the interpretive leap f
   <img src="war-planning/charts/08_capital_deployment.png" alt="Capital Deployment" width="100%">
 </p>
 
-### $30K Bankroll, 26-Week Phase-Adjusted Campaign
+### $60K Bankroll, 26-Week Phase-Adjusted Campaign
 
 | Phase | Weeks | Weekly Deploy | Calendar | Strangle | Phase Total |
 |:------|:-----:|:------------:|:--------:|:--------:|:-----------:|
-| **Negotiation** | 1-2 | $1,920 | $1,056 (55%) | $864 (45%) | $3,840 |
-| **DEADLINE** | 3 | **$2,880** | $576 (20%) | **$2,304 (80%)** | **$2,880** |
-| **Post-deadline** | 4-6 | $1,920 | $672 (35%) | $1,248 (65%) | $5,760 |
-| **Sustained** | 7-12 | $1,500 | $600 (40%) | $900 (60%) | $9,000 |
-| **Grind** | 13-20 | $1,200 | $480 (40%) | $720 (60%) | $9,600 |
-| **Late stage** | 21-26 | $960 | $480 (50%) | $480 (50%) | $5,760 |
-| **TOTAL** | | | | | **~$36,840** |
+| **Negotiation** | 1-2 | $3,840 | $2,112 (55%) | $1,728 (45%) | $7,680 |
+| **DEADLINE** | 3 | **$5,760** | $1,152 (20%) | **$4,608 (80%)** | **$5,760** |
+| **Post-deadline** | 4-6 | $3,840 | $1,344 (35%) | $2,496 (65%) | $11,520 |
+| **Sustained** | 7-12 | $3,000 | $1,200 (40%) | $1,800 (60%) | $18,000 |
+| **Grind** | 13-20 | $2,400 | $960 (40%) | $1,440 (60%) | $19,200 |
+| **Late stage** | 21-26 | $1,920 | $960 (50%) | $960 (50%) | $11,520 |
+| **TOTAL** | | | | | **~$73,680** |
 
 <br>
 
-> **Cash always preserved: minimum $15,000+ (50%+ of bankroll at any point)**
+> **Cash always preserved: minimum $30,000+ (50%+ of bankroll at any point)**
 
 The deployment is front-loaded toward the April 6 deadline and gradually decreases. The calendar/strangle mix shifts based on the crisis phase: more calendars during negotiation (feints spike IV), more strangles approaching the binary event.
 
@@ -453,11 +453,11 @@ The deployment is front-loaded toward the April 6 deadline and gradually decreas
 
 1,000 simulated 26-week campaigns using historical UNG weekly return distributions and the phase-adjusted sizing above.
 
-- **Green paths** — end above $30k (profit)
-- **Red paths** — end below $30k (loss)
+- **Green paths** — end above $60k (profit)
+- **Red paths** — end below $60k (loss)
 - **Blue line** — median outcome
 
-The distribution is **positively skewed**: most paths cluster slightly below $30k (the weekly bleed), but profitable paths extend further right (black swan payoffs). This is the statistical signature of long-volatility — frequent small losses, infrequent large gains. The campaign is a bet on the shape of the distribution, not on any single week.
+The distribution is **positively skewed**: most paths cluster slightly below $60k (the weekly bleed), but profitable paths extend further right (black swan payoffs). This is the statistical signature of long-volatility — frequent small losses, infrequent large gains. The campaign is a bet on the shape of the distribution, not on any single week.
 
 ---
 
@@ -491,8 +491,8 @@ The distribution is **positively skewed**: most paths cluster slightly below $30
 
 > 1. **Hormuz reopens** → stop immediately
 > 2. **IV rank > 60%** → pause (vol too expensive to buy)
-> 3. **Bankroll < $22k (-27%)** → cut weekly size in half
-> 4. **Bankroll < $18k (-40%)** → pause for 2 weeks, reassess
+> 3. **Bankroll < $44k (-27%)** → cut weekly size in half
+> 4. **Bankroll < $36k (-40%)** → pause for 2 weeks, reassess
 
 ---
 
@@ -571,7 +571,7 @@ The full quantitative analysis behind every claim in this document. Each report 
 | [**Iran Second-Order Strategy**](outputs/iran-second-order-plays/iran_second_order_strategy.md) | INDA, EWJ, MCHI, EWT — how the market caught up on some but not others | EWY jumped from 32% → 94% IV rank in 2 days. INDA strangles cost $0.002 — 1,222x leverage vs EWY. |
 | [**Vega Calendar Spreads**](outputs/vega-calendar-spreads/vega_calendar_analysis.md) | UNG calendar spread construction: sell Apr 2 $12C / buy May 15 $12C | Net vega +$1.12/contract per 1% IV move. P&L tent widens with IV expansion. |
 | [**Iran War Straddle Strategy**](outputs/iran-war-straddle-strategy/strangle_strategy.md) | TSM & NVDA bearish-weighted strangles | 92-95% cheaper than straddles. TSM breakeven: -5.8% down, +10.8% up. |
-| [**War Planning (Full Campaign)**](war-planning/WAR_PLANNING.md) | 26-week $30k campaign: timeline, decision tree, Monte Carlo, sizing | 1,000 simulated paths show positively-skewed distribution. Median outcome slightly negative, but profitable paths extend far right. |
+| [**War Planning (Full Campaign)**](war-planning/WAR_PLANNING.md) | 26-week $60k campaign: timeline, decision tree, Monte Carlo, sizing | 1,000 simulated paths show positively-skewed distribution. Median outcome slightly negative, but profitable paths extend far right. |
 
 Each report includes its own charts — 48 visualizations total across all reports. The data files (`lng_hormuz_data.json`, `ung_chain_data.json`, `taleb_agent_output.json`) contain the raw metrics for independent verification.
 

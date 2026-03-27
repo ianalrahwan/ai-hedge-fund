@@ -333,8 +333,8 @@ ax.set_facecolor(DARK_BG)
 summary_text = """THE FIVE EQUATIONS SAY:
 
 [1] Kelly f* = 12.9% -> 3.2% quarter
-    Bet ~960/week on 30k bankroll
-    2x aggressive: ~1,920/week
+    Bet ~1,920/week on 60k bankroll
+    2x aggressive: ~3,840/week
 
 [2] EV Gap = +35%
     Vol at 15th pctile vs model fair value
@@ -633,8 +633,8 @@ print("  7/10 Black swan")
 fig, ax = plt.subplots(figsize=(16, 8))
 fig.patch.set_facecolor(DARK_BG)
 
-bankroll = 30000
-base_weekly = 1920  # 2x aggressive (~6.4% of bankroll)
+bankroll = 60000
+base_weekly = 3840  # 2x aggressive (~6.4% of bankroll)
 
 # Phase-adjusted deployment
 phase_plan = [
@@ -686,7 +686,7 @@ ax2.plot(x, cumul, color=RED, linewidth=3, marker=".", markersize=6)
 ax2.set_ylabel("Cumulative Deployed ($)", color=RED, fontsize=10)
 ax2.tick_params(colors=RED)
 ax2.axhline(y=bankroll, color=YELLOW, linestyle="--", linewidth=1, alpha=0.5)
-ax2.text(25, bankroll + 500, "$30k bankroll", color=YELLOW, fontsize=9, ha="right")
+ax2.text(25, bankroll + 1000, "$60k bankroll", color=YELLOW, fontsize=9, ha="right")
 
 ax.set_xticks(x[::2])
 ax.set_xticklabels(week_labels[::2], rotation=45, fontsize=8)
@@ -694,7 +694,7 @@ ax.set_ylabel("Weekly Deployment ($)", color=TEXT_COLOR, fontsize=10)
 ax.legend(fontsize=10, facecolor=CARD_BG, edgecolor=GRID_COLOR, labelcolor=TEXT_COLOR, loc="upper left")
 ax.yaxis.set_major_formatter(mticker.FuncFormatter(lambda x, _: f"${x:,.0f}"))
 
-style_ax(ax, f"AGGRESSIVE 2× DEPLOYMENT: $30K Bankroll, Phase-Adjusted\n(Total deployed over 26 weeks: ${total_deployed:,.0f})")
+style_ax(ax, f"AGGRESSIVE 2× DEPLOYMENT: $60K Bankroll, Phase-Adjusted\n(Total deployed over 26 weeks: ${total_deployed:,.0f})")
 plt.tight_layout()
 plt.savefig(f"{OUT}/08_capital_deployment.png", dpi=150, facecolor=DARK_BG, bbox_inches="tight")
 plt.close()
@@ -759,7 +759,7 @@ ax.axhline(y=bankroll, color=YELLOW, linestyle="--", linewidth=2, alpha=0.5)
 
 final_vals = paths[:, -1]
 stats = (f"Median: \\${np.median(final_vals):,.0f} | Mean: \\${np.mean(final_vals):,.0f}\n"
-         f"P(profit): {(final_vals > bankroll).mean():.0%} | P(>40k): {(final_vals > 40000).mean():.0%}\n"
+         f"P(profit): {(final_vals > bankroll).mean():.0%} | P(>80k): {(final_vals > 80000).mean():.0%}\n"
          f"Worst 10%: <\\${np.percentile(final_vals, 10):,.0f} | Best 10%: >\\${np.percentile(final_vals, 90):,.0f}")
 
 ax.text(0.02, 0.02, stats, transform=ax.transAxes, fontsize=11,
@@ -802,32 +802,32 @@ def draw_arrow(ax, x1, y1, x2, y2, color, label=""):
                 color=color, fontsize=8, fontweight="bold")
 
 # Root
-draw_box(ax, 0.5, 4.2, 3.5, 1.5, "WEEK 1-2\n$1,920/week\n55% Calendar\n45% Strangle", YELLOW, 10)
+draw_box(ax, 0.5, 4.2, 3.5, 1.5, "WEEK 1-2\n$3,840/week\n55% Calendar\n45% Strangle", YELLOW, 10)
 
 # Week 3
 draw_arrow(ax, 4.0, 5.0, 5.0, 5.0, YELLOW, "Apr 4")
-draw_box(ax, 5.0, 4.2, 3.5, 1.5, "WEEK 3\nDEADLINE WEEK\n$2,880\n20% Cal / 80% Str", RED, 10)
+draw_box(ax, 5.0, 4.2, 3.5, 1.5, "WEEK 3\nDEADLINE WEEK\n$5,760\n20% Cal / 80% Str", RED, 10)
 
 # Apr 6 branch
 draw_arrow(ax, 8.5, 5.8, 10.0, 8.2, GREEN, "Iran opens\nHormuz")
 draw_box(ax, 10.0, 7.8, 3.5, 1.5, "STOP\nClose everything\nTake profits/losses\nVol crushes", GREEN, 9)
 
 draw_arrow(ax, 8.5, 5.0, 10.0, 5.0, YELLOW, "Stalemate\ndeadline extended")
-draw_box(ax, 10.0, 4.2, 3.5, 1.5, "CONTINUE\n$1,500/week\n40% Cal / 60% Str\nFeint pattern", YELLOW, 9)
+draw_box(ax, 10.0, 4.2, 3.5, 1.5, "CONTINUE\n$3,000/week\n40% Cal / 60% Str\nFeint pattern", YELLOW, 9)
 
 draw_arrow(ax, 8.5, 4.2, 10.0, 2.0, RED, "US military\nops begin")
 draw_box(ax, 10.0, 1.2, 3.5, 1.5, "GO HEAVY\n$3,000/week\n100% Strangles\nClose calendars", RED, 9)
 
 # From stalemate
 draw_arrow(ax, 13.5, 5.0, 14.5, 5.0, YELLOW)
-draw_box(ax, 14.5, 4.2, 3.0, 1.5, "WEEKS 7-26\nGrind it out\n$1,200/week\nRepeat weekly", ACCENT, 9)
+draw_box(ax, 14.5, 4.2, 3.0, 1.5, "WEEKS 7-26\nGrind it out\n$2,400/week\nRepeat weekly", ACCENT, 9)
 
 # From escalation
 draw_arrow(ax, 13.5, 2.0, 14.5, 2.0, RED)
 draw_box(ax, 14.5, 1.2, 3.0, 1.5, "BLACK SWAN\nUNG ±20-30%\nStrangles 5-10×\nCLOSE & TAKE $$$", GREEN, 9)
 
 # Stop rules
-draw_box(ax, 5.5, 0.2, 6.5, 0.8, "STOP RULES: IV rank >60% | Bankroll <$18k | Hormuz reopens", PINK, 9)
+draw_box(ax, 5.5, 0.2, 6.5, 0.8, "STOP RULES: IV rank >60% | Bankroll <$36k | Hormuz reopens", PINK, 9)
 
 ax.set_title("THE DECISION TREE — Phase-Adjusted War Campaign",
              color=TEXT_COLOR, fontsize=16, fontweight="bold", pad=20)
@@ -845,7 +845,7 @@ print("Writing report...")
 # ═══════════════════════════════════════════════════════════════════════════
 
 md = """# WAR PLANNING
-### Volatility Campaign: Iran-Hormuz Crisis | $30K Bankroll | 2× Aggressive | March 26, 2026
+### Volatility Campaign: Iran-Hormuz Crisis | $60K Bankroll | 2× Aggressive | March 26, 2026
 
 ---
 
@@ -915,7 +915,7 @@ $$f^* = \\frac{p \\cdot b - q}{b}$$
 
 Where p = 47% (UNG weekly win rate), b = 1.55 (win/loss ratio), q = 53%.
 
-**Full Kelly: 12.9% = $3,870/week.** Quarter Kelly (safe): 3.2% = $960/week. **2× aggressive: 6.4% = $1,920/week.**
+**Full Kelly: 12.9% = $7,740/week.** Quarter Kelly (safe): 3.2% = $1,920/week. **2× aggressive: 6.4% = $3,840/week.**
 
 *Source: Kelly, J.L. "A New Interpretation of Information Rate." Bell System Technical Journal, 1956.*
 
@@ -1032,19 +1032,19 @@ The math only works if:
 
 ![Capital Deployment](charts/08_capital_deployment.png)
 
-### $30K Bankroll, 26-Week Campaign
+### $60K Bankroll, 26-Week Campaign
 
 | Phase | Weeks | Weekly Deploy | Calendar | Strangle | Total |
 |-------|:-----:|:------------:|:--------:|:--------:|:-----:|
-| **Negotiation** | 1-2 | $1,920 | $1,056 (55%) | $864 (45%) | $3,840 |
-| **DEADLINE** | 3 | **$2,880** | $576 (20%) | **$2,304 (80%)** | $2,880 |
-| **Post-deadline** | 4-6 | $1,920 | $672 (35%) | $1,248 (65%) | $5,760 |
-| **Sustained** | 7-12 | $1,500 | $600 (40%) | $900 (60%) | $9,000 |
-| **Grind** | 13-20 | $1,200 | $480 (40%) | $720 (60%) | $9,600 |
-| **Late stage** | 21-26 | $960 | $480 (50%) | $480 (50%) | $5,760 |
-| **TOTAL** | | | | | **~$36,840** |
+| **Negotiation** | 1-2 | $3,840 | $2,112 (55%) | $1,728 (45%) | $7,680 |
+| **DEADLINE** | 3 | **$5,760** | $1,152 (20%) | **$4,608 (80%)** | $5,760 |
+| **Post-deadline** | 4-6 | $3,840 | $1,344 (35%) | $2,496 (65%) | $11,520 |
+| **Sustained** | 7-12 | $3,000 | $1,200 (40%) | $1,800 (60%) | $18,000 |
+| **Grind** | 13-20 | $2,400 | $960 (40%) | $1,440 (60%) | $19,200 |
+| **Late stage** | 21-26 | $1,920 | $960 (50%) | $960 (50%) | $11,520 |
+| **TOTAL** | | | | | **~$73,680** |
 
-**Cash always preserved: minimum $15,000+ (50%+ of bankroll at any point)**
+**Cash always preserved: minimum $30,000+ (50%+ of bankroll at any point)**
 
 The deployment is front-loaded toward the deadline week and gradually decreases as either the thesis plays out or the edge erodes.
 
@@ -1054,9 +1054,9 @@ The deployment is front-loaded toward the deadline week and gradually decreases 
 
 ![Monte Carlo](charts/09_monte_carlo_paths.png)
 
-1,000 simulated 26-week campaigns at 2× aggressive sizing. The fan shows the range of outcomes. Green paths end above $30k (profit), red paths end below.
+1,000 simulated 26-week campaigns at 2× aggressive sizing. The fan shows the range of outcomes. Green paths end above $60k (profit), red paths end below.
 
-**The distribution is positively skewed** — most paths cluster slightly below $30k (the weekly bleed), but the profitable paths extend much further right (black swan payoffs). This is the signature of a long-volatility strategy.
+**The distribution is positively skewed** — most paths cluster slightly below $60k (the weekly bleed), but the profitable paths extend much further right (black swan payoffs). This is the signature of a long-volatility strategy.
 
 ---
 
