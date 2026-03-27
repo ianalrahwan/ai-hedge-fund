@@ -12,8 +12,8 @@ $60K Bankroll | 2x Aggressive Kelly | 26 Weeks
 
 ---
 
-*"The fragile wants tranquility, the antifragile grows from disorder."*
-**Nassim Nicholas Taleb**, Antifragile (2012)
+*"WAR is a racket. It always has been. It is possibly the oldest, easily the most profitable, surely the most vicious. It is the only one international in scope. It is the only one in which the profits are reckoned in dollars and the losses in lives."*
+**Smedley Butler**, War is a Racket (1935)
 
 *"War is merely the continuation of policy by other means."*
 **Carl von Clausewitz**, On War (1832)
