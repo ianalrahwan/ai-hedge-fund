@@ -8,7 +8,7 @@
 
 [![Built with AI Hedge Fund](https://img.shields.io/badge/built%20with-AI%20Hedge%20Fund-blue)](README_ORIGINAL.md)
 [![Nassim Taleb Agent](https://img.shields.io/badge/agent-Nassim%20Taleb-green)](#ii-the-nassim-taleb-agent)
-[![Hunting](https://img.shields.io/badge/status-hunting-yellow)](#05-the-hunt)
+
 
 ---
 
@@ -42,7 +42,6 @@
 | V | [IV Crush](#v-iv-crush--the-silent-killer) | What kills every long option if the crisis resolves overnight |
 | VI | [The Trinity](#vi-the-trinity-straddle-vs-strangle-vs-calendar) | Three ways to play volatility — when each wins and loses |
 | VII | [Black Swan Campaign](#vii-the-black-swan-campaign) | Lose small for 24 weeks, win big for 2 |
-| VIII | [Capital Deployment](#viii-capital-deployment--2-aggressive) | Phase-adjusted week-by-week allocation |
 | IX | [Monte Carlo](#ix-monte-carlo-simulation) | 1,000 simulated 26-week campaigns |
 | X | [Decision Tree](#x-the-decision-tree) | The execution protocol I'm following |
 | XI | [Trade Log: Vanna vs Theta](#xi-trade-log-the-leg-out--vanna-vs-theta) | Why I sold the put and held the call — vanna fighting theta, and theta was winning |
@@ -417,52 +416,13 @@ Calendars are the **vega hedge** for feint weeks when headlines spike IV but the
 
 <div align="center">
 
-> *"I want to live happily in a world I don't understand."*
-> — Nassim Nicholas Taleb, *The Black Swan*
 
 </div>
 
-Over 26 weeks of buying strangles, **most weeks expire worthless.** The cumulative bleed looks painful. But the weeks where UNG moves 15-25% generate returns that dwarf all accumulated losses combined.
-
-The math requires three conditions:
-
-1. **Survival** — Kelly sizing prevents ruin during the inevitable losing streaks
-2. **Persistence** — The campaign must still be running when the black swan arrives
-3. **Edge** — The mispricing has to be real, not just wished into existence
-
-Conditions 1 and 2 are within my control. Condition 3 is the interpretive leap from [Section 0](#0-the-volatility-premium-problem).
-
----
-
 <br>
 
-## VIII. Capital Deployment — 2x Aggressive
 
-<p align="center">
-  <img src="war-planning/charts/08_capital_deployment.png" alt="Capital Deployment" width="100%">
-</p>
 
-### $60K Bankroll, 26-Week Phase-Adjusted Campaign
-
-| Phase | Weeks | Weekly Deploy | Calendar | Strangle | Phase Total |
-|:------|:-----:|:------------:|:--------:|:--------:|:-----------:|
-| **Negotiation** | 1-2 | $3,840 | $2,112 (55%) | $1,728 (45%) | $7,680 |
-| **DEADLINE** | 3 | **$5,760** | $1,152 (20%) | **$4,608 (80%)** | **$5,760** |
-| **Post-deadline** | 4-6 | $3,840 | $1,344 (35%) | $2,496 (65%) | $11,520 |
-| **Sustained** | 7-12 | $3,000 | $1,200 (40%) | $1,800 (60%) | $18,000 |
-| **Grind** | 13-20 | $2,400 | $960 (40%) | $1,440 (60%) | $19,200 |
-| **Late stage** | 21-26 | $1,920 | $960 (50%) | $960 (50%) | $11,520 |
-| **TOTAL** | | | | | **~$73,680** |
-
-<br>
-
-> **Cash always preserved: minimum $30,000+ (50%+ of bankroll at any point)**
-
-The deployment is front-loaded toward the April 6 deadline and gradually decreases. The calendar/strangle mix shifts based on the crisis phase: more calendars during negotiation (feints spike IV), more strangles approaching the binary event.
-
----
-
-<br>
 
 ## IX. Monte Carlo Simulation
 
