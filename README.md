@@ -4,7 +4,7 @@
 
 **A Long-Volatility Campaign Against the Hormuz Crisis**
 
-$60K Bankroll | 2x Aggressive Kelly | 26 Weeks
+0.5 Kelly | 26 Weeks
 
 [![Built with AI Hedge Fund](https://img.shields.io/badge/built%20with-AI%20Hedge%20Fund-blue)](README_ORIGINAL.md)
 [![Nassim Taleb Agent](https://img.shields.io/badge/agent-Nassim%20Taleb-green)](#ii-the-nassim-taleb-agent)
