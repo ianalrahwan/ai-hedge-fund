@@ -33,8 +33,8 @@
 
 | # | Section | |
 |:-:|---------|---|
-| 0 | [The Volatility Premium Problem](#0-the-volatility-premium-problem) | Why buying options is usually a losing game, and why a war changes that |
-| 0.5 | [The Hunt](#05-the-hunt) | UNG didn't work — what I learned and where I'm looking now |
+| 0 | [A Tale of Two Risk Premiums](#0-the-volatility-premium-problem) | Why buying options is usually a losing game, and why a war changes that |
+| 0.5 | [The Hunt](#05-the-hunt) | Where I'm looking now |
 | I | [Situation Assessment](#i-situation-assessment) | The crisis timeline and the April 6 inflection point |
 | II | [The Nassim Taleb Agent](#ii-the-nassim-taleb-agent) | AI agent scoring framework for long vol plays |
 | III | [Clausewitz Escalation Ladder](#iii-the-clausewitz-escalation-ladder) | War participants historically feint before the real move |
@@ -53,7 +53,7 @@
 
 <br>
 
-## 0. The Volatility Premium Problem
+## 0. A Tale of Two Risk Premiums
 
 ### Why Buying Options Is Usually a Losing Game
 
