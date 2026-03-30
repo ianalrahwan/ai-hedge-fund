@@ -57,9 +57,9 @@
 
 ### Why Buying Options Is Usually a Losing Game
 
-Options markets have a **volatility premium**. Implied volatility — the price baked into options — is almost always *higher* than realized volatility. The person selling the option demands a premium for taking on the risk. The person buying the option pays that premium.
+Options markets have a **volatility premium**. Implied volatility — the price baked into options — is almost always *higher* than realized volatility. The person selling the option demands a premium for taking on the risk. The person buying the option pays that premium. This risk premium relationship is the opposite of what retail stock traders are used to. The US stock market has an **equity risk premium**, meaning that equity holders demand a higher return relative to the speed and magnitude of drawdown. This equity risk premium is higher for high p/e ratio stocks. 
 
-This is counter-intuitive to the average retail stock purchaser, and I think its the main reason retail traders suck at options trading. **On average, option buyers lose money.** The seller collects premium week after week, and the buyer's strangles and straddles expire worthless more often than not. Systematically selling volatility is one of the most consistent strategies in finance. Implied vol exceeds realized vol roughly 85% of the time across most assets.
+Options, then, are extremely counter-intuitive to the average retail stock purchaser, and that's been what is most fascinating to me about them since starting this project. Retail investors get wiped out options trading. **On average, option buyers lose money.** The seller collects premium week after week, and the buyer's strangles and straddles expire worthless more often than not. Systematically selling volatility is one of the most consistent strategies in finance. Implied vol exceeds realized vol roughly 85% of the time across most assets.
 
 ### So Why Am I Buying Options at all instead of selling them?
 
