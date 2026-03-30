@@ -1,22 +1,19 @@
 <div align="center">
 
-# THE VEGA WAR ROOM PROJECT 
+# THE VANNA WAR ROOM 
 
-**A Long-Volatility Campaign Against the Hormuz Crisis**
+**Hunting Cheap Vanna in a War — A Long-Volatility Campaign Against the Hormuz Crisis**
 
 0.5 Kelly | 26 Weeks
 
 [![Built with AI Hedge Fund](https://img.shields.io/badge/built%20with-AI%20Hedge%20Fund-blue)](README_ORIGINAL.md)
 [![Nassim Taleb Agent](https://img.shields.io/badge/agent-Nassim%20Taleb-green)](#ii-the-nassim-taleb-agent)
-[![Signal: Strong Buy Vol](https://img.shields.io/badge/signal-strong__buy__vol%2088%25-brightgreen)](#ii-the-nassim-taleb-agent)
+[![Hunting](https://img.shields.io/badge/status-hunting-yellow)](#05-the-hunt)
 
 ---
 
-*"The fragile wants tranquility, the antifragile grows from disorder."*
-**Nassim Nicholas Taleb**, Antifragile (2012)
-
-*"War is merely the continuation of policy by other means."*
-**Carl von Clausewitz**, On War (1832)
+*"WAR is a racket. It always has been. It is possibly the oldest, easily the most profitable, surely the most vicious. It is the only one international in scope. It is the only one in which the profits are reckoned in dollars and the losses in lives."*
+**Smedley Butler**, War is a Racket (1935)
 
 ---
 
@@ -30,27 +27,28 @@
 
 <br>
 
-*PART 1: Entry date: March 26, 2026*
+*Started: March 26, 2026 | Updated: March 30, 2026*
 
 ## Table of Contents
 
 | # | Section | |
 |:-:|---------|---|
 | 0 | [The Volatility Premium Problem](#0-the-volatility-premium-problem) | Why buying options is usually a losing game, and why a war changes that |
-| 0.5 | [Why UNG Is the Monster Pick](#05-why-ung-is-the-monster-pick) | UNG vs top candidates — and the IV crush pattern the market isn't pricing |
+| 0.5 | [The Hunt](#05-the-hunt) | UNG didn't work — what I learned and where I'm looking now |
 | I | [Situation Assessment](#i-situation-assessment) | The crisis timeline and the April 6 inflection point |
-| II | [The Nassim Taleb Agent](#ii-the-nassim-taleb-agent) | AI agent output — the quantitative case for long vol on UNG |
-| III | [Clausewitz Escalation Ladder](#iii-the-clausewitz-escalation-ladder) | Why Iran always feints before the real move |
-| IV | [The Four Quant Equations](#iv-the-four-quant-equations) | Kelly, EV Gap, KL-Divergence, Bayesian Updating |
+| II | [The Nassim Taleb Agent](#ii-the-nassim-taleb-agent) | AI agent scoring framework for long vol plays |
+| III | [Clausewitz Escalation Ladder](#iii-the-clausewitz-escalation-ladder) | War participants historically feint before the real move |
+| IV | [The Four Sanity Checks](#iv-the-four-quant-equations) | Kelly, EV Gap, KL-Divergence, Bayesian Updating |
 | V | [IV Crush](#v-iv-crush--the-silent-killer) | What kills every long option if the crisis resolves overnight |
 | VI | [The Trinity](#vi-the-trinity-straddle-vs-strangle-vs-calendar) | Three ways to play volatility — when each wins and loses |
 | VII | [Black Swan Campaign](#vii-the-black-swan-campaign) | Lose small for 24 weeks, win big for 2 |
 | VIII | [Capital Deployment](#viii-capital-deployment--2-aggressive) | Phase-adjusted week-by-week allocation |
 | IX | [Monte Carlo](#ix-monte-carlo-simulation) | 1,000 simulated 26-week campaigns |
 | X | [Decision Tree](#x-the-decision-tree) | The execution protocol I'm following |
-| XI | [Alerting for Fidelity](#xi-alerting-schedule-for-fidelity) | How someone with a day job monitors weekly options |
-| XII | [Taleb Reports](#xii-taleb-reports) | Full analysis reports — strangle scoring, second-order plays, LNG, vega calendars |
-| XIII | [Sources](#xiii-sources) | Geopolitical, market, and quantitative theory citations |
+| XI | [Trade Log: Vanna vs Theta](#xi-trade-log-the-leg-out--vanna-vs-theta) | Why I sold the put and held the call — vanna fighting theta, and theta was winning |
+| XII | [Alerting for Fidelity](#xii-alerting-schedule-for-fidelity) | How someone with a day job monitors weekly options |
+| XIII | [Taleb Reports](#xiii-taleb-reports) | Full analysis reports — strangle scoring, second-order plays, LNG, vega calendars |
+| XIV | [Sources](#xiv-sources) | Geopolitical, market, and quantitative theory citations |
 
 ---
 
@@ -60,13 +58,11 @@
 
 ### Why Buying Options Is Usually a Losing Game
 
-There is a well-documented phenomenon in options markets called the **volatility premium**. Implied volatility — the price baked into options — is almost always *higher* than realized volatility. The person selling the option demands a premium for taking on the risk. The person buying the option pays that premium.
+Options markets have a **volatility premium**. Implied volatility — the price baked into options — is almost always *higher* than realized volatility. The person selling the option demands a premium for taking on the risk. The person buying the option pays that premium.
 
-This means that **on average, option buyers lose money.** The seller collects premium week after week, and the buyer's strangles and straddles expire worthless more often than not. Systematically selling volatility is one of the most consistent strategies in finance. It works until it doesn't.
+This is counter-intuitive to the average retail stock purchaser, and I think its the main reason retail traders suck at options trading. **On average, option buyers lose money.** The seller collects premium week after week, and the buyer's strangles and straddles expire worthless more often than not. Systematically selling volatility is one of the most consistent strategies in finance. Implied vol exceeds realized vol roughly 85% of the time across most assets.
 
-This is a fact. I'm not disputing it. The data is overwhelming: implied vol exceeds realized vol roughly 85% of the time across most assets.
-
-### So Why Am I Buying Options?
+### So Why Am I Buying Options at all instead of selling them?
 
 Because the volatility premium is a *statistical regularity*, it breaks during **phenomena** — situations where the base assumptions of the model no longer apply.
 
@@ -80,15 +76,15 @@ The assumptions that underpin the volatility premium:
 - There are no structural breaks in the regime
 - The market has time to gradually reprice risk
 
-Every one of these assumptions is violated right now.
+These assumptions are being violated by the war right now right now.
 
 UNG has **excess kurtosis of 7.09** — the tails are 2.4x fatter than a normal distribution. Returns are wildly non-Gaussian. The Strait of Hormuz has been effectively closed for a month — the future does not resemble the recent past. QatarGas declared force majeure with "years" of damage — this is a structural break. And there's a hard deadline (April 6) where the regime could shift overnight in either direction.
 
 **The volatility premium assumes the world is boring. Right now, the world is not boring.**
 
-### The Honest Position
+### The War Correlaiton
 
-I can't prove the market is mispricing UNG options. Nobody can prove a mispricing until after the fact. The IV rank is at the 15th percentile of its annual range during an active war over the world's most important energy chokepoint — that *looks* like a mispricing, but it might not be. The market might be right that Hormuz will reopen quietly and vol will stay compressed.
+I can't prove the market is mispricing UNG options. However, recentThe IV **rank** is deceptively low for UNV (at the 15th percentile of its annual range), but that's not due to the war. It was a February cold snap. The IV **percentile** is moderately high at 57%. This means that the volatility is historically higher than an average day. But my conviction is that a moderate IV during an active war over the world's most important energy chokepoint *looks* like a mispricing.  The market might be right that Hormuz will reopen quietly and vol will stay compressed.
 
 What I can say:
 
@@ -106,44 +102,66 @@ This is the Taleb framework: **pay a small, known cost for the right to profit f
 
 <br>
 
-## 0.5 Why UNG Is the Monster Pick
+## 0.5 The Hunt
 
-### UNG vs the Top 3 Candidates
+### UNG Didn't Work Out — Here's What Happened
 
-<p align="center">
-  <img src="outputs/taleb-strangle-analysis/charts/ung_monster_pick.png" alt="UNG Monster Pick Comparison" width="100%">
-</p>
+My first trade was a UNG $12 straddle. The Nassim Taleb agent scored it 37.4/50 — cheapest vol, fattest tails, highest convexity. I entered March 26, legged out the put on March 27, and the call expired near-worthless on April 1. The full post-mortem is in the [Trade Log](#xi-trade-log-the-leg-out--vanna-vs-theta).
 
-I screened six tickers through the Nassim Taleb agent — UNG, MCHI, TSM, EWT, EWJ, and INDA. Four made the cut. Here's why UNG isn't just the winner — it's a different species.
+Three things went wrong:
 
-| Metric | UNG | MCHI | TSM | EWJ |
-|--------|:---:|:----:|:---:|:---:|
-| **IV Rank** | **15%** | 29% | 32% | 57% |
-| **Kurtosis** | **7.1** | 5.7 | 2.8 | 5.3 |
-| **Gap Days (>3%)** | **39%** | 5% | 18% | 4% |
-| **Composite Score** | **37.4/50** | 25.6/50 | 22.5/50 | 22.0/50 |
+**1. The IV Rank was a weather mirage.** UNG's IV rank showed 16% — "extremely cheap." But that was measured against a **145% vol spike in February from a cold weather event**, not from Hormuz fear. Excluding that weather anomaly, the adjusted IV rank was 23% and the **IV Percentile was 45%** — perfectly average. I wasn't buying cheap vol. I was buying normal vol that *looked* cheap because of a weather artifact.
 
-UNG is cheapest on vol, fattest on tails, and most explosive on gap frequency — by a wide margin. The gap between UNG and the #2 pick (MCHI) is **larger than the gap between #2 and #4**. This isn't a close call.
+**2. UNG is structurally decoupled from Hormuz.** The EIA said it directly: *"U.S. natural gas prices [are] relatively unaffected by this development."* US LNG export terminals were already at max capacity before the war. Even with Qatar offline, Henry Hub can't export more gas — the pipe is full. European TTF gas hit $18/mmBtu while Henry Hub sat at $3. The **$15 arbitrage can't close** because of infrastructure constraints. UNG is a weather play dressed up as a war play.
 
-MCHI and TSM are real plays — cheap vol, real geopolitical catalysts. But UNG is the one where all five Talebian factors align simultaneously.
+**3. The Pakistan deal killed the weekend thesis.** Over the weekend of March 28-29, Pakistan brokered selective vessel passage through Hormuz and hosted four-nation ceasefire consultations. UNG gapped down 4.4% on Monday. The put I sold Friday would have printed. The Clausewitz feint pattern was correct — but the feint was *diplomatic*, and it moved UNG in the wrong direction.
 
-### The IV Crush Pattern the Market Isn't Pricing
+### What I'm Hunting Now
 
-<p align="center">
-  <img src="outputs/taleb-strangle-analysis/charts/iv_crush_not_priced_in.png" alt="IV Crush Not Priced In" width="100%">
-</p>
+The thesis is the same: **buy cheap vanna on assets with direct Hormuz exposure before the April 6 deadline.** The framework is the same. The instrument changes.
 
-This is the chart that tells the whole story. Look at the top panel: UNG's volatility towers over every other candidate. It peaked at **145%** in February 2026 and has since crashed to **50%**. The market sees that crash and anchors to it — *vol spiked, vol crushed, move on.*
+**Scoring: Vol Cheapness (IVP) 30% | Fat Tails 20% | War Correlation 20% | Gap Freq 15% | Vol Trend 15%**
 
-But look at the bottom panel. UNG's IV rank has crushed to cheap levels **5 times** in the past year. Every single time, it re-exploded. The cycle repeats: spike → crush → cheap → spike → crush → cheap. The volatility premium — the assumption that selling vol is a free lunch — is built on the idea that a crush means calm returns. **For UNG, a crush means a reload.**
+| # | Ticker | What | Spot | Vol | IVP | Kurt | Gaps | War Corr | Score |
+|:-:|--------|------|-----:|:---:|:---:|:----:|:----:|:--------:|:-----:|
+| 1 | **FANG** | Diamondback Energy | $201 | 25% | **3%** | 7.6 | 15% | +0.31 | **7.0** |
+| 2 | **DVN** | Devon Energy | $52 | 27% | **19%** | 8.4 | 16% | +0.28 | **6.4** |
+| 3 | **XLE** | Energy Sector ETF | $63 | 17% | **25%** | 9.0 | 3% | +0.27 | **5.0** |
+| 4 | USO | Oil ETF (direct) | $124 | 79% | 100% | 4.1 | 16% | +1.00 | 4.2 |
+| 5 | XOP | Oil & Gas E&P ETF | $188 | 24% | 35% | 8.1 | 10% | +0.46 | 4.0 |
+| 6 | OXY | Occidental Petroleum | $65 | 33% | 47% | 4.6 | 15% | +0.33 | 3.0 |
 
-The current IV rank sits at the **15th percentile** — during an active war over the world's most important energy chokepoint. The options market is pricing UNG as if the Feb spike was a one-off event and the world has returned to normal. The world has not returned to normal. Hormuz is still closed. QatarGas declared force majeure. The April 6 deadline is 11 days away.
+**USO is the most direct Hormuz play** (correlation +1.00 with oil) but vol is at the **100th percentile** — you're buying the top. USO is for gamma, not vanna.
 
-> **The volatility premium is anchoring to the crush. The crush is the opportunity.**
+**FANG and DVN** are the vanna plays. Both are oil E&P companies with:
+- **Genuinely cheap vol** (IVP 3% and 19% — bottom quintile on *both* IV rank and percentile)
+- **Fat tails** (kurtosis 7.6 and 8.4 — fatter than UNG's 7.1)
+- **Direct oil exposure** (they produce oil, not gas)
+- **Vol contracting** into the catalyst (-13% and -21%)
+- **Positive war correlation** (+0.31 and +0.28 with oil)
 
-The other three candidates don't show this pattern. MCHI and TSM have relatively flat vol histories — their current cheapness is real but doesn't come with the same cyclical reload dynamic. EWJ's vol already expanded to the 57th percentile. Only UNG gives you the combination of: cheap premiums *and* a proven history of explosive re-expansion *and* a live geopolitical catalyst.
+**XLE** is the diversified version — cheapest daily theta, broadest exposure, but only 3% gap frequency (it rarely moves big in a single day).
 
-> For the full quantitative breakdown across all six tickers, see the [Taleb Reports](#xii-taleb-reports) below.
+### Vanna/Theta on the Top Candidates
+
+| Ticker | 17 DTE Cost | Theta/day | +10% IV Spike | V/T Ratio | % of $60k |
+|--------|:-----------:|:---------:|:-------------:|:---------:|:---------:|
+| **FANG** | $18,889 | $564 | $1,888 | **3.3x** | 31% |
+| **DVN** | $5,411 | $161 | $541 | **3.3x** | 9% |
+| **XLE** | $4,108 | $118 | $397 | **3.4x** | 7% |
+
+DVN at $5,411 for 22 contracts is the most capital-efficient — only 9% of the $60k bankroll. FANG has better gap frequency but costs 31%. A barbell of DVN + XLE uses 16% of capital with two different risk profiles.
+
+### The Lesson Applied
+
+| What I Did Wrong on UNG | What Changes Now |
+|--------------------------|------------------|
+| Used IV Rank (distorted by weather) | **Use IV Percentile** — not distorted by outlier spikes |
+| Played nat gas (indirect Hormuz) | **Play oil E&P** — direct Hormuz transmission, no export cap |
+| Entered at 4 DTE | **Enter at 17-31 DTE** — vanna/theta ratio 3.3-6.2x |
+| Assumed Hormuz = nat gas | **Verified: EIA says US gas "relatively unaffected"** |
+
+> The hunt continues. Same framework, better instrument, honest mistakes documented.
 
 ---
 
@@ -170,9 +188,10 @@ On **February 28, 2026**, the United States and Israel launched surprise airstri
 | Mar 26 | **Trump extends Hormuz deadline to April 6** | [NPR](https://www.npr.org/2026/03/26/nx-s1-5761882/iran-war-peace-conditions) |
 | — | 150+ freight ships stalled in the strait | [NPR](https://www.npr.org/2026/03/04/nx-s1-5736104/iran-war-oil-trump-israel-strait-hormuz-closed-energy-crisis) |
 | — | QatarGas: "extensive" damage, "years to repair" | [Fortune](https://fortune.com/2026/03/21/iran-war-helium-shortage-qatar-chip-supply-chains-ai-boom/) |
-| — | UNG **down 6.2%** since Mar 13 while crisis intensified | Yahoo Finance |
+| Mar 29 | Pakistan brokers selective vessel passage; 4-nation ceasefire talks | [NPR](https://www.npr.org/2026/03/29/nx-s1-5762818/pakistan-holds-talks-to-end-iran-war-israel-intensifies-strikes) |
+| Mar 29 | Iran attacks US base in Saudi Arabia — 29 soldiers injured | [CNN](https://www.cnn.com/2026/03/29/world/live-news/iran-war-us-israel-trump) |
 
-The key observation: **implied volatility is contracting into the catalyst.** The options market is sitting at the 15th percentile of its annual range while an active war rages over the world's most important energy chokepoint. This is the phenomenon.
+The key observation: **oil vol is elevated but oil E&P vol is near historic lows.** Brent crude is up 50% since the war began, but companies like FANG and DVN have IV Percentiles in the single digits. The market is pricing the oil move but not the vol on the producers.
 
 <br>
 
@@ -180,11 +199,11 @@ The key observation: **implied volatility is contracting into the catalyst.** Th
 
 > In **11 days**, Trump's ultimatum expires.
 
-| Scenario | Est. Probability | UNG Impact | IV Impact | Strategy Response |
+| Scenario | Est. Probability | Oil/Energy Impact | IV Impact | Strategy Response |
 |:---------|:----------:|:----------:|:---------:|:-------------|
-| Iran opens Hormuz | ~15% | -5% to -10% | **CRUSH** to 35% | Close all positions immediately |
-| Stalemate / extension | ~55% | ±3-5% | Stays 55-70% | Calendar-heavy — profit from persistent fear |
-| US military operation | ~30% | **+15% to +30%** | **SPIKE** to 120%+ | Strangle-heavy — the black swan pays |
+| Iran opens Hormuz | ~15% | Oil -10-15%, E&P stocks drop | **CRUSH** | Close all positions immediately |
+| Stalemate / extension | ~55% | Oil ±5%, E&P vol stays elevated | Stays elevated | Calendar-heavy — profit from persistent fear |
+| US military operation | ~30% | **Oil +20-30%**, E&P stocks spike | **SPIKE** to 120%+ | Strangle-heavy — the black swan pays |
 
 ---
 
@@ -243,7 +262,7 @@ In the agent's own words:
   <img src="war-planning/charts/02_escalation_ladder.png" alt="Escalation Ladder" width="100%">
 </p>
 
-Every Iran confrontation since 1988 follows the same pattern:
+Each Iran confrontation since 1988 followed the same pattern:
 
 <div align="center">
 
@@ -272,7 +291,7 @@ A well-structured campaign profits from **both**.
 
 <br>
 
-## IV. The Four Quant Equations
+## IV. The Four Sanity Checks
 
 <p align="center">
   <img src="war-planning/charts/03_five_equations.png" alt="Four Quant Equations" width="100%">
@@ -498,7 +517,102 @@ The distribution is **positively skewed**: most paths cluster slightly below $60
 
 <br>
 
-## XI. Alerting Schedule for Fidelity
+## XI. Week 1 Trade Log: Vanna Headwinds vs Theta Tailwinds vs Gamma Gap on a short-dated UNG
+
+*March 30, 2026 — 11:15 AM ET*
+
+### The Position 
+
+22 contracts of the UNG $12 straddle (put + call), entered March 26 at $0.39/share per leg (~$1,716 total for both legs). Expiry: April 1 (Tuesday). 
+
+### The Result 
+
+Sold at net loss of $990 including commissions. Legged out put on friday at loss of $330. Sold call at loss of $660. 
+
+### What I Learned
+
+I confirmed that for my thesis, I actually should have sold the straddle, not purchased one this weekend. If I believe that IV will not become RV in the short term but will in the long term, calendar spreads are more effective instruments. 
+
+> * OVERALL,
+
+
+
+*March 26, 2026 — 10:15 AM ET*
+
+
+### The Friday Morning Move
+
+UNG opened Friday at **$12.16** — up 2.7% from yesterday's $11.84 close. The put that was profitable yesterday is now melting as UNG crossed above the $12 strike. Live option chain as of 10:15 AM:
+
+| Leg | Bid | Ask | IV | Status |
+|-----|:---:|:---:|:--:|--------|
+| **$12 Put** | $0.25 | $0.26 | 53% | Losing value fast — OTM now |
+| **$12 Call** | $0.42 | $0.45 | 57% | ITM — gaining |
+| **Straddle** | $0.67 | $0.71 | — | Still below $0.78 cost |
+
+### What I Did
+
+**Sold the put at $0.25. Held the call.**
+
+| | Amount |
+|---|---:|
+| Total straddle cost (both legs) | $1,716 |
+| Put sale (22 × 100 × $0.25) | $550 |
+| Remaining cost to recover | **$1,166** |
+| Call needs to be worth to break even | **$0.53/share** |
+| Call currently worth (bid $0.42) | $924 |
+| Current total value (put proceeds + call) | $1,474 |
+| **Unrealized P&L** | **-$242** |
+
+
+### Why I Sold the Put Now
+
+The put is decaying in two directions simultaneously:
+
+1. **UNG moved above the strike.** At $12.16, the $12 put is OTM with only $0.25 of time value left. If UNG keeps going up, this put goes to zero and I get nothing for it. I am still feeling out how to understand time value vs theoretical value.
+2. **Weekend theta.** 3 calendar days of decay for 0 trading days. The put is pure time value — it has no intrinsic protection to fall back on. By Tuesday it's dust.
+
+Selling at $0.25 is better than watching it decay to $0.05.
+
+### Why: The Vanna-Theta Collision
+
+I started the clock at **4 DTE** instead of 10–21 DTE, which meant vanna and charm were in direct competition from day one.
+
+$$\text{Theta decay} \propto \frac{1}{\sqrt{DTE}}$$
+
+At 21 DTE, you pay a small daily bleed while vanna works in your favor. At 4 DTE, theta is consuming your position faster than IV expansion can replenish it — unless the IV move is large and immediate. The weekend compounds this: **3 calendar days of theta decay for 0 trading days of gamma opportunity.**
+
+The straddle's weekend theta cost: **~$454** (22 contracts). The call-only weekend theta: **~$227**. Legging out the put saves half the bleed.
+
+### The Directional Conviction
+
+I'm not neutral on direction anymore. The evidence points upward:
+
+- Iran's Defence Council threatened **mine-laying across all Gulf sea lanes** — a new escalation beyond just Hormuz closure
+- Trump warned Iran to agree "before it is too late" — markets fell on the threat
+- Shipping analysts assess **routine Hormuz transit won't resume in 2026**
+- The crisis is getting hotter, not cooler
+
+> * OVERALL, if the entire time I thought UNG would sag into Friday before a massive gamma up over a war escalation, I just paid for the premium and theta decay of the put option expecting a flush. This is called legging out. As a complete newbie, I did not have a term for that as I was talking to Claude. I should have recognizing that my actual thesis for the weekend WAS NOT a pure vanna play, but a dynamic ratio with a path dependency assuming that first a volatile downswing would occur due to false optimism of propaganda and then second a massive problem over the weekend. Then I'd be getting extra downwards gamma cheap on the vega compression. I am getting increasingly interested in second order greeks like vanna and charm. I'm not considering a longer dated April 17th option on ADP depending on its IV metrics and what happens this weekend. 
+
+
+
+
+### Monday, March 30 — The Outcome
+
+UNG opened at $12.29 and dumped to **$11.75** — down 4.4%. The Pakistan deal over the weekend brokered selective vessel passage through Hormuz, and four-nation ceasefire talks in Islamabad shifted the market's risk calculus. The $12 call went deep OTM. The put I sold Friday at $0.25 would have been worth ~$0.27+.
+
+**Final trade P&L: approximately -$1,100 on a $1,716 entry.**
+
+But the bigger lesson wasn't the P&L — it was realizing that **UNG was never actually a Hormuz play**. The EIA published research showing US natural gas prices are *"relatively unaffected"* by the Hormuz closure because LNG export terminals were already at max capacity. Henry Hub at $3 while European TTF hit $18 — a $15 arbitrage that can't close because the infrastructure pipe is full. UNG's "cheap" IV rank of 16% was measuring distance from a **February cold weather spike**, not from war fear. The IV Percentile — a better metric that isn't distorted by outlier spikes — showed vol at the **45th percentile**. Average, not cheap.
+
+The thesis was right (buy cheap vanna on war-correlated assets). The instrument was wrong (UNG is weather, not war). The DTE was wrong (4 days, not 17-31). The IV measurement was wrong (rank, not percentile). Three mistakes, all fixable. See [Section 0.5: The Hunt](#05-the-hunt) for where I'm looking next.
+
+---
+
+<br>
+
+## XII. Alerting Schedule for Fidelity
 
 *How someone with a day job monitors weekly options positions.*
 
@@ -559,7 +673,7 @@ The alerting system should trigger **action, not anxiety.** Set it and forget it
 
 <br>
 
-## XII. Taleb Reports
+## XIII. Taleb Reports
 
 The full quantitative analysis behind every claim in this document. Each report was generated by running live market data through the Nassim Taleb agent and custom analysis scripts.
 
@@ -579,7 +693,7 @@ Each report includes its own charts — 48 visualizations total across all repor
 
 <br>
 
-## XIII. Sources
+## XIV. Sources
 
 ### Geopolitical Intelligence
 
