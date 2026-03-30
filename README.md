@@ -57,7 +57,9 @@
 
 ### Why Buying Options Is Usually a Losing Game
 
-Options markets have a **volatility premium**. Implied volatility — the price baked into options — is almost always *higher* than realized volatility. The person selling the option demands a premium for taking on the risk. The person buying the option pays that premium. This risk premium relationship is the opposite of what retail stock traders are used to. The US stock market has an **equity risk premium**, meaning that equity holders demand a higher return relative to the speed and magnitude of drawdown. This equity risk premium is higher for high p/e ratio stocks. 
+Options markets have a **volatility premium**. Implied volatility — the price baked into options — is almost always *higher* than realized volatility. The person selling the option demands a premium for taking on the risk. The person buying the option pays that premium. This risk premium relationship is the opposite of what retail stock traders are used to. 
+
+The US stock market has an **equity risk premium**, meaning that prospective equity buyers demand a higher return relative to the speed and magnitude of drawdown. All stocks in the US are then compared in their equity risk premium to treasury yield as the instrument with the lowest equity risk premium (assuming the US remains the global hegemon). This equity risk premium is higher for high p/e ratio stocks. 
 
 Options, then, are extremely counter-intuitive to the average retail stock purchaser, and that's been what is most fascinating to me about them since starting this project. Retail investors get wiped out options trading. **On average, option buyers lose money.** The seller collects premium week after week, and the buyer's strangles and straddles expire worthless more often than not. Systematically selling volatility is one of the most consistent strategies in finance. Implied vol exceeds realized vol roughly 85% of the time across most assets.
 
@@ -83,7 +85,7 @@ UNG has **excess kurtosis of 7.09** — the tails are 2.4x fatter than a normal 
 
 ### The War Correlaiton
 
-I can't prove the market is mispricing UNG options. However, recentThe IV **rank** is deceptively low for UNV (at the 15th percentile of its annual range), but that's not due to the war. It was a February cold snap. The IV **percentile** is moderately high at 57%. This means that the volatility is historically higher than an average day. But my conviction is that a moderate IV during an active war over the world's most important energy chokepoint *looks* like a mispricing.  The market might be right that Hormuz will reopen quietly and vol will stay compressed.
+I can't prove the market is mispricing UNG options. In fact, the IV metrics paint a mixed picture. The IV **rank** is deceptively low for UNV (at the 15th percentile of its annual range), but that's not due to the war. It was a February cold snap. The IV **percentile** is moderately high at 57%. This means that the volatility is historically higher than an average day. But my conviction is that a moderate IV during an active war over the world's most important energy chokepoint *looks* like a mispricing.  The market might be right that Hormuz will reopen quietly and vol will stay compressed.
 
 What I can say:
 
@@ -103,9 +105,7 @@ This is the Taleb framework: **pay a small, known cost for the right to profit f
 
 ## 0.5 The Hunt
 
-### UNG Didn't Work Out — Here's What Happened
-
-My first trade was a UNG $12 straddle. The Nassim Taleb agent scored it 37.4/50 — cheapest vol, fattest tails, highest convexity. I entered March 26, legged out the put on March 27, and the call expired near-worthless on April 1. The full post-mortem is in the [Trade Log](#xi-trade-log-the-leg-out--vanna-vs-theta).
+My first trade was a UNG $12 straddle on March 26th 2026. The Nassim Taleb agent scored it 37.4/50 — cheapest vol, fattest tails, highest convexity. I entered March 26, legged out the put on March 27, and the call expired near-worthless on April 1. The full post-mortem is in the [Trade Log](#xi-trade-log-the-leg-out--vanna-vs-theta).
 
 Three things went wrong:
 
