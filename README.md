@@ -19,7 +19,7 @@
 
 </div>
 
-> **The Vega War Room Project is a blogpost for a largely vibe-coded project -- not a trading manual.** The first cardinal sin of investing is trading on geopolitics. The second cardinal sin is trading options. So I am doing both. This blogpost disguised as a README documents what I'm trying, why I'm trying it, and what the AI agents I built think about it. The positions are real. The analysis is dated. The outcome is unknown. None of this is financial advice. I am putting my real money on the line to give myself skin-in-the-game for ripping tokens through a Claude Max Pro Subscription. In the before times, I used to bet with one of my good friends in college with an accountability app that would donate to anti-charities (think your worst nightmare of a social cause) if you failed a goal. Now, it's just my Fidelity. 
+> **The Vanna War Room Project is a blogpost for a largely vibe-coded project -- not a trading manual.** The first cardinal sin of investing is trading on geopolitics. The second cardinal sin is trading options. So I am doing both. This blogpost disguised as a README documents what I'm trying, why I'm trying it, and what the AI agents I built think about it. The positions are real. The analysis is dated. The outcome is unknown. None of this is financial advice. I am putting my real money on the line to give myself skin-in-the-game for ripping tokens through a Claude Max Pro Subscription. In the before times, I used to bet with one of my good friends in college with an accountability app that would donate to anti-charities (think your worst nightmare of a social cause) if you failed a goal. Now, it's just my Fidelity. 
 
 
 
