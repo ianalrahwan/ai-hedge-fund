@@ -8,7 +8,6 @@
 
 [![Built with AI Hedge Fund](https://img.shields.io/badge/built%20with-AI%20Hedge%20Fund-blue)](README_ORIGINAL.md)
 [![Nassim Taleb Agent](https://img.shields.io/badge/agent-Nassim%20Taleb-green)](#ii-the-nassim-taleb-agent)
-[![Hunting](https://img.shields.io/badge/status-hunting-yellow)](#05-the-hunt)
 
 ---
 
