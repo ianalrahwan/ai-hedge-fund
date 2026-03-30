@@ -4,7 +4,7 @@
 
 **A Long-Volatility Campaign Against the Hormuz Crisis**
 
-$60K Bankroll | 2x Aggressive Kelly | 26 Weeks
+0.5 Kelly | 26 Weeks
 
 [![Built with AI Hedge Fund](https://img.shields.io/badge/built%20with-AI%20Hedge%20Fund-blue)](README_ORIGINAL.md)
 [![Nassim Taleb Agent](https://img.shields.io/badge/agent-Nassim%20Taleb-green)](#ii-the-nassim-taleb-agent)
@@ -14,9 +14,6 @@ $60K Bankroll | 2x Aggressive Kelly | 26 Weeks
 
 *"WAR is a racket. It always has been. It is possibly the oldest, easily the most profitable, surely the most vicious. It is the only one international in scope. It is the only one in which the profits are reckoned in dollars and the losses in lives."*
 **Smedley Butler**, War is a Racket (1935)
-
-*"War is merely the continuation of policy by other means."*
-**Carl von Clausewitz**, On War (1832)
 
 ---
 
@@ -37,11 +34,10 @@ $60K Bankroll | 2x Aggressive Kelly | 26 Weeks
 | # | Section | |
 |:-:|---------|---|
 | 0 | [The Volatility Premium Problem](#0-the-volatility-premium-problem) | Why buying options is usually a losing game, and why a war changes that |
-| 0.5 | [Why UNG Is the Monster Pick](#05-why-ung-is-the-monster-pick) | UNG vs top candidates — and the IV crush pattern the market isn't pricing |
 | I | [Situation Assessment](#i-situation-assessment) | The crisis timeline and the April 6 inflection point |
 | II | [The Nassim Taleb Agent](#ii-the-nassim-taleb-agent) | AI agent output — the quantitative case for long vol on UNG |
-| III | [Clausewitz Escalation Ladder](#iii-the-clausewitz-escalation-ladder) | Why Iran always feints before the real move |
-| IV | [The Four Quant Equations](#iv-the-four-quant-equations) | Kelly, EV Gap, KL-Divergence, Bayesian Updating |
+| III | [Clausewitz Escalation Ladder](#iii-the-clausewitz-escalation-ladder) | War participants historically feint before the real move |
+| IV | [The Four Sanity Checks](#iv-the-four-quant-equations) | Kelly, EV Gap, KL-Divergence, Bayesian Updating |
 | V | [IV Crush](#v-iv-crush--the-silent-killer) | What kills every long option if the crisis resolves overnight |
 | VI | [The Trinity](#vi-the-trinity-straddle-vs-strangle-vs-calendar) | Three ways to play volatility — when each wins and loses |
 | VII | [Black Swan Campaign](#vii-the-black-swan-campaign) | Lose small for 24 weeks, win big for 2 |
@@ -61,13 +57,11 @@ $60K Bankroll | 2x Aggressive Kelly | 26 Weeks
 
 ### Why Buying Options Is Usually a Losing Game
 
-There is a well-documented phenomenon in options markets called the **volatility premium**. Implied volatility — the price baked into options — is almost always *higher* than realized volatility. The person selling the option demands a premium for taking on the risk. The person buying the option pays that premium.
+Options markets have a **volatility premium**. Implied volatility — the price baked into options — is almost always *higher* than realized volatility. The person selling the option demands a premium for taking on the risk. The person buying the option pays that premium.
 
-This means that **on average, option buyers lose money.** The seller collects premium week after week, and the buyer's strangles and straddles expire worthless more often than not. Systematically selling volatility is one of the most consistent strategies in finance. It works until it doesn't.
+This is counter-intuitive to the average retail stock purchaser, and I think its the main reason retail traders suck at options trading. **On average, option buyers lose money.** The seller collects premium week after week, and the buyer's strangles and straddles expire worthless more often than not. Systematically selling volatility is one of the most consistent strategies in finance. Implied vol exceeds realized vol roughly 85% of the time across most assets.
 
-This is a fact. I'm not disputing it. The data is overwhelming: implied vol exceeds realized vol roughly 85% of the time across most assets.
-
-### So Why Am I Buying Options?
+### So Why Am I Buying Options at all instead of selling them?
 
 Because the volatility premium is a *statistical regularity*, it breaks during **phenomena** — situations where the base assumptions of the model no longer apply.
 
@@ -81,15 +75,15 @@ The assumptions that underpin the volatility premium:
 - There are no structural breaks in the regime
 - The market has time to gradually reprice risk
 
-Every one of these assumptions is violated right now.
+These assumptions are being violated by the war right now right now.
 
 UNG has **excess kurtosis of 7.09** — the tails are 2.4x fatter than a normal distribution. Returns are wildly non-Gaussian. The Strait of Hormuz has been effectively closed for a month — the future does not resemble the recent past. QatarGas declared force majeure with "years" of damage — this is a structural break. And there's a hard deadline (April 6) where the regime could shift overnight in either direction.
 
 **The volatility premium assumes the world is boring. Right now, the world is not boring.**
 
-### The Honest Position
+### The War Correlaiton
 
-I can't prove the market is mispricing UNG options. Nobody can prove a mispricing until after the fact. The IV rank is at the 15th percentile of its annual range during an active war over the world's most important energy chokepoint — that *looks* like a mispricing, but it might not be. The market might be right that Hormuz will reopen quietly and vol will stay compressed.
+I can't prove the market is mispricing UNG options. However, recentThe IV **rank** is deceptively low for UNV (at the 15th percentile of its annual range), but that's not due to the war. It was a February cold snap. The IV **percentile** is moderately high at 57%. This means that the volatility is historically higher than an average day. But my conviction is that a moderate IV during an active war over the world's most important energy chokepoint *looks* like a mispricing.  The market might be right that Hormuz will reopen quietly and vol will stay compressed.
 
 What I can say:
 
@@ -244,7 +238,7 @@ In the agent's own words:
   <img src="war-planning/charts/02_escalation_ladder.png" alt="Escalation Ladder" width="100%">
 </p>
 
-Every Iran confrontation since 1988 follows the same pattern:
+Each Iran confrontation since 1988 followed the same pattern:
 
 <div align="center">
 
@@ -273,7 +267,7 @@ A well-structured campaign profits from **both**.
 
 <br>
 
-## IV. The Four Quant Equations
+## IV. The Four Sanity Checks
 
 <p align="center">
   <img src="war-planning/charts/03_five_equations.png" alt="Four Quant Equations" width="100%">
@@ -501,11 +495,26 @@ The distribution is **positively skewed**: most paths cluster slightly below $60
 
 ## XI. Week 1 Trade Log: Vanna Headwinds vs Theta Tailwinds vs Gamma Gap on a short-dated UNG
 
-*March 27, 2026 — 10:15 AM ET*
+*March 30, 2026 — 11:15 AM ET*
 
-### The Position
+### The Position 
 
-22 contracts of the UNG $12 straddle (put + call), entered March 26 at $0.39/share per leg (~$1,716 total for both legs). Expiry: April 1 (Tuesday).
+22 contracts of the UNG $12 straddle (put + call), entered March 26 at $0.39/share per leg (~$1,716 total for both legs). Expiry: April 1 (Tuesday). 
+
+### The Result 
+
+Sold at net loss of $990 including commissions. Legged out put on friday at loss of $330. Sold call at loss of $660. 
+
+### What I Learned
+
+I confirmed that for my thesis, I actually should have sold the straddle, not purchased one this weekend. If I believe that IV will not become RV in the short term but will in the long term, calendar spreads are more effective instruments. 
+
+> * OVERALL,
+
+
+
+*March 26, 2026 — 10:15 AM ET*
+
 
 ### The Friday Morning Move
 
@@ -531,7 +540,6 @@ UNG opened Friday at **$12.16** — up 2.7% from yesterday's $11.84 close. The p
 | Current total value (put proceeds + call) | $1,474 |
 | **Unrealized P&L** | **-$242** |
 
-I'm still down $242 on the full trade. The put sale doesn't "lock in profit" — it **recovers $550 of my $1,716 cost** and **cuts my max loss from $1,716 to $1,166** (if the call expires worthless). The call needs UNG at **~$12.53** (+3% from here) by Tuesday to break even on the whole trade.
 
 ### Why I Sold the Put Now
 
@@ -544,7 +552,7 @@ Selling at $0.25 is better than watching it decay to $0.05.
 
 ### Why: The Vanna-Theta Collision
 
-The entry logic was correct — low IVR (15th percentile), known unpriced catalyst, ATM for maximum vanna sensitivity. But I started the clock at **4 DTE** instead of 10–21 DTE, which meant vanna and charm were in direct competition from day one.
+I started the clock at **4 DTE** instead of 10–21 DTE, which meant vanna and charm were in direct competition from day one.
 
 $$\text{Theta decay} \propto \frac{1}{\sqrt{DTE}}$$
 
@@ -561,46 +569,10 @@ I'm not neutral on direction anymore. The evidence points upward:
 - Shipping analysts assess **routine Hormuz transit won't resume in 2026**
 - The crisis is getting hotter, not cooler
 
-If I'm directionally convicted that the weekend risk skews upward, holding a put that bleeds theta against my thesis is paying insurance I don't believe I need — especially when the put is already OTM and melting.
+> * OVERALL, if the entire time I thought UNG would sag into Friday before a massive gamma up over a war escalation, I just paid for the premium and theta decay of the put option expecting a flush. This is called legging out. As a complete newbie, I did not have a term for that as I was talking to Claude. I should have recognizing that my actual thesis for the weekend WAS NOT a pure vanna play, but a dynamic ratio with a path dependency assuming that first a volatile downswing would occur due to false optimism of propaganda and then second a massive problem over the weekend. Then I'd be getting extra downwards gamma cheap on the vega compression. I am getting increasingly interested in second order greeks like vanna and charm. I'm not considering a longer dated April 17th option on ADP depending on its IV metrics and what happens this weekend. 
 
-### What I'm Choosing to Miss
 
-This is the honest part. By selling the put, I'm giving up protection against scenarios that are real:
 
-| Scenario | UNG Direction | Magnitude | Probability | What I Lose |
-|:---------|:------------:|:---------:|:-----------:|:------------|
-| Partial escalation, LNG disruption continues | Up | +8–15% | **Highest** | Nothing — call wins here |
-| Full Hormuz closure, no quick resolution | Up then down | +15% gap, reversal | Moderate | Nothing on the gap — but vulnerable on reversal |
-| US successfully reopens strait / ceasefire | **Down hard** | -10–20% | Moderate | **The put would have printed. I miss this entirely.** |
-| Full regional war, demand destruction | **Down** | -15–25% over days | Lower but real | **Same — demand destruction kills the call, put would have saved me.** |
-| Stalemate, no new developments | Flat | ±3% | Present | Both legs bleed — but I save $227 in theta |
-
-The third and fourth rows are the ones that hurt. If Hormuz reopens over the weekend or demand destruction pricing kicks in, the put I sold would have been the winning leg. I'm accepting that risk in exchange for:
-
-1. **Cutting max loss from $1,716 to $1,166 **
-2. **Halving my weekend theta bleed** ($227 saved)
-3. **Recovering $550 now** before the put decays further
-4. **Converting to a pure directional bet** aligned with my actual conviction — UNG needs +3% by Tuesday, one escalation headline away
-
-<p align="center">
-  <img src="outputs/taleb-strangle-analysis/charts/leg_out_analysis.png" alt="Leg Out Analysis" width="100%">
-</p>
-
-### The Lesson for Next Time
-
-The vanna play was right. The structure was wrong. For uncertain-timing catalysts at low IVR:
-
-| Parameter | What I Did | What I Should Have Done |
-|-----------|:----------:|:-----------------------:|
-| Entry date | March 26 (4 DTE) | March 10–16 (10–21 DTE) |
-| IVR at entry | ~15% (good) | Same — IVR was already low then |
-| Vanna runway | 4 days, charm immediate | 10–21 days before charm dominates |
-| Structure | ATM straddle (correct) | ATM straddle or strangle (same) |
-| Expiry | April 1 (too soon) | April 15+ (covers multiple event windows) |
-
-The rule to carry forward: **when IVR is below 40 and your catalyst has uncertain timing, always buy enough DTE to cover at least two potential event windows.** The premium cost at low IVR is worth it. I compressed three potential payoff windows (this weekend, next week's EIA, April 6 deadline) into one by going 4 DTE.
-
-> * OVERALL, if the entire time I thought UNG would sag into Friday before a massive gamma up over a war escalation, I just paid for the premium and theta decay of the put option expecting a flush. This is called legging out. As a complete newbie, I did not have a term for that as I was talking to Claude. I should have recognizing that my actual thesis for the weekend WAS NOT a pure vanna play, but a dynamic ratio with a path dependency assuming that first a volatile downswing would occur due to false optimism of propaganda and then second a massive problem over the weekend. Then I'd be getting extra downwards gamma cheap on the vega compression. I am getting increasingly interested in second order greeks like vanna and charm. I'm not considering a longer dated April 17th option on ADP depending on its IVR and what happens this weekend. 
 
 ---
 
